@@ -1,0 +1,93 @@
+{% extends "themes/base_visitor.html.twig" %}
+
+{% block title %}- Inscription{% endblock %}
+
+{% block description %}Inscription{% endblock %}
+
+{% block main %}
+    <h1 class="text-center my-3 display-5">Inscription</h1>
+
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 mx-auto bg-white shadow rounded p-4">
+                {{ form_start(registrationForm) }}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="registration_form_firstName">Prénom</label>
+                            <div class="text-danger">{{ form_errors(registrationForm.firstName) }}</div>
+                            {{form_widget(registrationForm.firstName, {'attr' : {'class': 'form-control'}} )}}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="registration_form_lastName">Nom</label>
+                            <div class="text-danger">{{ form_errors(registrationForm.lastName) }}</div>
+                            {{form_widget(registrationForm.lastName, {'attr' : {'class': 'form-control'}} )}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="registration_form_email">Email</label>
+                            <div class="text-danger">{{ form_errors(registrationForm.email) }}</div>
+                            {{form_widget(registrationForm.email, {'attr' : {'class': 'form-control'}} )}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="registration_form_password_first">Mot de passe</label>
+                            <div class="text-danger">{{ form_errors(registrationForm.password.first) }}</div>
+                            {{form_widget(registrationForm.password.first, {'attr' : {'class': 'form-control'}} )}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="registration_form_password_second">Confirmation du mot de passe</label>
+                            <div class="text-danger">{{ form_errors(registrationForm.password.second) }}</div>
+                            {{form_widget(registrationForm.password.second, {'attr' : {'class': 'form-control'}} )}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="text-danger">{{ form_errors(registrationForm.agreeTerms) }}</div>
+                            {{form_widget(registrationForm.agreeTerms) }}
+                            <label for="registration_form_agreeTerms">Veuillez accepter <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">les conditions générales d'utilisation</a></label>
+                            
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Les conditions générales d'utilisation</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere natus dolorum dolores unde laborum iure, itaque asperiores libero inventore, eius cumque voluptates molestias tempora. Iure nemo nisi enim harum voluptas?
+                                            Omnis sint vitae dolorum, quasi harum aliquid aliquam veniam consectetur dignissimos animi dolor sit ratione voluptatibus impedit, eos voluptas facilis quaerat rerum perspiciatis voluptatem molestias cumque. Consequatur at voluptatum cumque.
+                                            Id excepturi laboriosam adipisci ea sequi corrupti ab facilis deleniti qui impedit, placeat tempore fugit maxime unde voluptatibus distinctio consequatur voluptates ipsam enim. Expedita alias eos velit fugiat nostrum doloremque!
+                                            Iure, sunt, doloremque consequatur laborum, quaerat mollitia ipsa quam cupiditate qui vitae odit. Officia nemo aut aspernatur perferendis soluta recusandae commodi, quaerat animi quos error? Iure deserunt nam tempora voluptatem?
+                                            Voluptas cumque sapiente consequuntur mollitia ut quis sunt rem necessitatibus, quidem, architecto illum et assumenda nostrum magni iure ipsam, dolorum quam pariatur. Pariatur quae tempora aspernatur ab, blanditiis aut! Quidem.
+                                            Sequi vel explicabo veritatis molestiae ad ipsum cum obcaecati earum ab delectus odit, amet totam quasi asperiores libero quibusdam reprehenderit alias eum accusantium voluptatibus. Doloremque ab temporibus in. Atque, dolor.
+                                            Autem placeat, temporibus quaerat non tempora accusamus quo eaque enim cum asperiores saepe consequuntur fuga et aut delectus facere cumque ipsam eum ad quidem. Eos doloremque temporibus laudantium doloribus. Sunt!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <input type="submit" class="btn btn-primary" formnovalidate/>
+                        </div>
+                    </div>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
