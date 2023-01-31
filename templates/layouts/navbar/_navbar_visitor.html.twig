@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
     <div class="container-fluid">
        <a href="{{ path('visitor.welcome.index') }}">
            <img class="navbar-brand" src="{{ asset('images/logo_monsaintjo.png') }}" alt="">  
@@ -20,15 +20,31 @@
         </ul>
 
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Espace admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Connexion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('visitor.registration.register') }}">Inscription</a>
-          </li>
+          {% if app.user %}
+              {% if is_granted('ROLE_SUPER_ADMIN') %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Espace admin</a>
+                  </li>
+              {% elseif is_granted('ROLE_ADMIN') %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Espace admin</a>
+                  </li>
+              {% elseif is_granted('ROLE_USER') %}
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Espace privé</a>
+                  </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('app.logout') }}">Déconnexion</a>
+              </li>
+          {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('visitor.authentication.login') }}">Connexion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('visitor.registration.register') }}">Inscription</a>
+                </li>
+          {% endif %}
         </ul>
 
       </div>

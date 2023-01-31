@@ -90,7 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         message: 'Le mot de passe doit contenir au moins une lette minuscule, une lettre majuscule, un chiffre et caractère spécial.',
     )]
     #[Assert\NotCompromisedPassword(
-        message:"Ce mot de passe est facilement piratable ! Veuillez en choisir un autre. "
+        message:"Ce mot de passe est facilement piratable ! Veuillez en choisir un autre."
     )]
     private ?string $password = null;
 
@@ -127,11 +127,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
+
     
 
     public function __construct()
     {
         $this->isVerified = false;
+        $this->roles[] = "ROLE_USER";
     }
 
     public function getId(): ?int
