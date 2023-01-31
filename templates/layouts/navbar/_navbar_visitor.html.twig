@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow">
     <div class="container-fluid">
        <a href="{{ path('visitor.welcome.index') }}">
-           <img class="navbar-brand" src="{{ asset('images/logo_monsaintjo.png') }}" alt="">  
+           <img class="navbar-brand" src="{{ asset('images/logo_monsaintjo.png') }}" alt="Le logo du site MonSaintJo">  
        </a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -23,15 +23,15 @@
           {% if app.user %}
               {% if is_granted('ROLE_SUPER_ADMIN') %}
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Espace admin</a>
+                    <a class="nav-link active" aria-current="page" href="{{ path('admin.home.index') }}">Espace admin</a>
                   </li>
               {% elseif is_granted('ROLE_ADMIN') %}
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Espace admin</a>
+                    <a class="nav-link active" aria-current="page" href="{{ path('admin.home.index') }}">Espace admin</a>
                   </li>
               {% elseif is_granted('ROLE_USER') %}
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Espace privé</a>
+                    <a class="nav-link active" aria-current="page" href="{{ path('user.home.index') }}">Espace privé</a>
                   </li>
               {% endif %}
               <li class="nav-item">
