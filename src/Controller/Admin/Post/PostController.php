@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Post;
 
 use App\Entity\Post;
 use App\Form\PostFormType;
+use App\Repository\CategoryRepository;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,8 +21,18 @@ class PostController extends AbstractController
     }
 
     #[Route('/admin/post/create', name: 'admin.post.create')]
-    public function create(Request $request, PostRepository $postRepository,): Response
+    public function create(Request $request,
+     PostRepository $postRepository,
+     CategoryRepository $categoryRepository,
+     ): Response
     {
+
+        if ( ! $categoryRepository->findAll()) {
+             
+            $this->addFlash("warning", "Vous devez créer au moins une catégorie avant de rédiger des articles.");
+            return $this->redirectToRoute("admin.category.index");
+        }
+
         $post = new Post();
         $form = $this->createForm(PostFormType::class, $post);
 
@@ -71,6 +82,28 @@ class PostController extends AbstractController
 
         return $this->redirectToRoute("admin.post.index");
     }
+
+    #[Route('/admin/post/{id<\d+>}/edit', name: 'admin.post.edit')]
+    public function edit(Post $post, Request $request, PostRepository $postRepository) : Response
+    {
+        $form = $this->createForm(PostFormType::class, $post);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $post->setUser($this->getUser());
+            $postRepository->save($post, true);
+            $this->addFlash("success", "L'article " . $post->getTitle() . " a été modifié !");
+            return $this->redirectToRoute("admin.post.index");
+        }
+
+        return $this->render("pages/admin/post/edit.html.twig", [
+            "form" => $form->createView(),
+            "post" => $post
+        ]);
+    }
+
 
     #[Route('/admin/post/{id<\d+>}/delete', name: 'admin.post.delete')]
     public function delete(Post $post, Request $request, PostRepository $postRepository) : Response

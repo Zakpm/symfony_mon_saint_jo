@@ -31,6 +31,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
+    
 
     <div class="d-flex justify-content-end align-items-center my-3">
             <a class="btn btn-primary" href="{{ path('admin.post.create') }}"><i class="fa-solid fa-plus"></i> Nouvel article</a>
@@ -82,8 +83,8 @@
                             <a href="{{ path('admin.post.show', {'id' : post.id}) }}" title="Lire l'article"><i class="fa-solid fa-eye"></i></a>
                         </td>
                         <td>
-                            <a class="text-secondary m-2" href="" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_post_{{ post.id }}').submit()"  class="text-danger m-2" href="" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
+                            <a class="text-secondary m-2" href="{{ path('admin.post.edit', {'id' : post.id}) }}" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a onclick="event.preventDefault(); confirm('Attention ! En supprimant cette catégorie, vous supprimerez tous les articles qui lui sont associés.') && document.querySelector('.delete_post_{{ post.id }}').submit()"  class="text-danger m-2" href="" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
                             
                             <form class="delete_post_{{ post.id }}" action="{{ path('admin.post.delete', {'id': post.id})}}" method="POST" class="d-none">
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('post_' ~ post.id ) }}" />
