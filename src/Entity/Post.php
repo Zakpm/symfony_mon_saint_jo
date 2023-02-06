@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Entity\User;
 use App\Entity\Category;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
@@ -79,6 +81,9 @@ class Post
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts')]
+    private Collection $tags;
+
 
 
     #[ORM\Column(options: array("default" => false))]
@@ -101,10 +106,19 @@ class Post
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $publishedAt = null;
 
+    
+
+    #[ORM\ManyToMany(targetEntity: City::class, inversedBy: 'posts')]
+    private Collection $cities;
+
+  
+
 
     public function __construct()
     {
         $this->isPublished = false;
+        $this->tags = new ArrayCollection();
+        $this->cities = new ArrayCollection();
     }
    
 
@@ -254,6 +268,54 @@ class Post
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): self
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): self
+    {
+        $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, City>
+     */
+    public function getCities(): Collection
+    {
+        return $this->cities;
+    }
+
+    public function addCity(City $city): self
+    {
+        if (!$this->cities->contains($city)) {
+            $this->cities->add($city);
+        }
+
+        return $this;
+    }
+
+    public function removeCity(City $city): self
+    {
+        $this->cities->removeElement($city);
 
         return $this;
     }

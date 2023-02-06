@@ -22,11 +22,11 @@ class Category
 
 
     #[Assert\NotBlank(
-        message: "Le nom est obligatoire."
+        message: "Le nom de la catégorie est obligatoire."
     )]
     #[Assert\Length(
         max: 255,
-        maxMessage: 'Le nom doit contenir au maximu {{ limit }} caractères.',
+        maxMessage: 'Le nom de la catégorie doit contenir au maximu {{ limit }} caractères.',
     )]
     #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;

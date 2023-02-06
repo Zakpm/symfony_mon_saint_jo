@@ -6,4 +6,46 @@
 
 {% block main %}
     <h1 class="text-center my-3 display-5">Liste des tags</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class=" text-center alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
+
+    <div class="d-flex justify-content-end align-content-center my-3">
+        <a href="{{ path('admin.tag.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i>  Nouveau tag</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover text-center">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th>id</th>
+                    <th>Nom</th>
+                    <th>Slug</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tag in tags %}
+                    <tr>
+                        <td>{{ tag.id }}</td>
+                        <td>{{ tag.name }}</td>
+                        <td>{{ tag.slug }}</td>
+                        <td>
+                            <a class="text-secondary m-2" href="{{ path('admin.tag.edit', {'id': tag.id}) }}" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_tag_{{ tag.id }}').submit()"  class="text-danger m-2" href="" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
+                            
+                            <form class="delete_tag_{{ tag.id }}" action="{{ path('admin.tag.delete', {'id': tag.id}) }}" method="POST" class="d-none">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('tag_' ~ tag.id ) }}" />
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

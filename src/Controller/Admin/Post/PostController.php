@@ -5,7 +5,9 @@ namespace App\Controller\Admin\Post;
 use App\Entity\Post;
 use App\Form\PostFormType;
 use App\Repository\CategoryRepository;
+use App\Repository\CityRepository;
 use App\Repository\PostRepository;
+use App\Repository\TagRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,6 +26,9 @@ class PostController extends AbstractController
     public function create(Request $request,
      PostRepository $postRepository,
      CategoryRepository $categoryRepository,
+     CityRepository $cityRepository,
+     TagRepository $tagRepository,
+
      ): Response
     {
 
@@ -31,6 +36,12 @@ class PostController extends AbstractController
              
             $this->addFlash("warning", "Vous devez créer au moins une catégorie avant de rédiger des articles.");
             return $this->redirectToRoute("admin.category.index");
+        }
+
+        if ( ! $cityRepository->findAll()) {
+             
+            $this->addFlash("warning", "Vous devez créer au moins une ville avant de rédiger des articles.");
+            return $this->redirectToRoute("admin.city.index");
         }
 
         $post = new Post();
@@ -47,7 +58,9 @@ class PostController extends AbstractController
         }
 
         return $this->render('pages/admin/post/create.html.twig', [
-            "form" => $form->createView()
+            "form" => $form->createView(),
+            "tags" => $tagRepository->findAll(),
+            "cities" => $cityRepository->findAll()
         ]); 
     }
 
@@ -63,8 +76,13 @@ class PostController extends AbstractController
     }
 
     #[Route('/admin/post/{id<[0-9]+>}/publish', name: 'admin.post.publish')]
-    public function publish(Post $post, PostRepository $postRepository) : Response
+    public function publish(
+        Post $post, 
+        PostRepository $postRepository, 
+        CityRepository $cityRepository,
+        ) : Response
     {
+
         if ($post->isIsPublished() == false) {
 
             $post->setIsPublished(true);
@@ -84,8 +102,21 @@ class PostController extends AbstractController
     }
 
     #[Route('/admin/post/{id<\d+>}/edit', name: 'admin.post.edit')]
-    public function edit(Post $post, Request $request, PostRepository $postRepository) : Response
+    public function edit(
+        Post $post, 
+        Request $request, 
+        PostRepository $postRepository,
+        CategoryRepository $categoryRepository,
+        CityRepository $cityRepository,
+        TagRepository $tagRepository,
+        ) : Response
     {
+        if ( ! $categoryRepository->findAll()) {
+             
+            $this->addFlash("warning", "Vous devez créer au moins une catégorie avant de rédiger des articles.");
+            return $this->redirectToRoute("admin.category.index");
+        }
+
         $form = $this->createForm(PostFormType::class, $post);
 
         $form->handleRequest($request);
@@ -100,7 +131,8 @@ class PostController extends AbstractController
 
         return $this->render("pages/admin/post/edit.html.twig", [
             "form" => $form->createView(),
-            "post" => $post
+            "post" => $post,
+            "tags" => $tagRepository->findAll(),
         ]);
     }
 
