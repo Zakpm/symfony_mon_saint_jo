@@ -13,7 +13,7 @@
             <a class="nav-link {{ (uri_url == path('visitor.welcome.index')) ? 'active' : '' }}" aria-current="page" href="{{ path('visitor.welcome.index') }}">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Qui sommes-nous ?</a>
+            <a class="nav-link {{ (uri_url == path('visitor.about_me.index')) ? 'active' : '' }}" href="{{ path('visitor.about_me.index') }}">Qui sommes-nous ?</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ (uri_url == path('visitor.contact.create')) ? 'active' : '' }}" href="{{ path('visitor.contact.create') }}">Contact</a>

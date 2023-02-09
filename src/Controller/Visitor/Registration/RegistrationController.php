@@ -73,12 +73,18 @@ class RegistrationController extends AbstractController
                 ]
             ]);
 
-            return $this->redirectToRoute('visitor.welcome.index');
+            return $this->redirectToRoute('visitor.registration.waiting_for_email_verification');
         }
 
         return $this->render('pages/visitor/registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+    }
+
+    #[Route('/register/waiting-for-email-verification', name: 'visitor.registration.waiting_for_email_verification')]
+    public function waitingForEmailVerification() : Response
+    {
+      return  $this->render("pages/visitor/registration/waiting_for_email_verification.html.twig");
     }
 
     #[Route('/register/email-verif/{id<\d+>}/{token}', name: 'visitor.registration.email_verif')]
@@ -91,8 +97,8 @@ class RegistrationController extends AbstractController
 
         if ( $user->isIsVerified()) {
 
-            $this->addFlash('success', "Votre compte a déjà été vérifié ! Vous pouvez vous connecter.");
-            return $this->redirectToRoute('visitor.welcome.index');
+            $this->addFlash('warning', "Votre compte a déjà été vérifié ! Vous pouvez vous connecter.");
+            return $this->redirectToRoute('visitor.authentication.login');
         }
 
         if (empty($token) || empty($user->getTokenForEmailVerification()) || ($token !== $user->getTokenForEmailVerification())  ) {
@@ -118,7 +124,7 @@ class RegistrationController extends AbstractController
 
         $this->addFlash("message", "Votre compte a bien été vérifié ! Vous pouvez vous connecter.");
         
-        return $this->redirectToRoute('visitor.welcome.index');
+        return $this->redirectToRoute('visitor.authentication.login');
     }
 
 }
