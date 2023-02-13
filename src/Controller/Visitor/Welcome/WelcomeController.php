@@ -2,9 +2,10 @@
 
 namespace App\Controller\Visitor\Welcome;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class WelcomeController extends AbstractController
 {
@@ -13,4 +14,5 @@ class WelcomeController extends AbstractController
     {
         return $this->render('pages/visitor/welcome/index.html.twig');
     }
+    
 }

@@ -54,9 +54,9 @@
                 $('#post_form_tags').select2();
             });
         </script>
-    {% else %}
-            {{ form_widget(form.tags, {'attr' : {'class' : 'd-none'}}) }}
-    {% endif %}
+        {% else %}
+                {{ form_widget(form.tags, {'attr' : {'class' : 'd-none'}}) }}
+        {% endif %}
     <div class="mb-3">
         <label for="post_form_cities">Ville</label>
         <div class="text-danger">{{ form_errors(form.cities) }}</div>

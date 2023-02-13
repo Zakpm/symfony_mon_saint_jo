@@ -2,6 +2,7 @@
 
 namespace App\Controller\Visitor\Blog;
 
+use App\Entity\Tag;
 use App\Entity\City;
 use App\Entity\Post;
 use App\Entity\Category;
@@ -9,77 +10,51 @@ use App\Repository\TagRepository;
 use App\Repository\CityRepository;
 use App\Repository\PostRepository;
 use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends AbstractController
 {
-    #[Route('/blog/saint-joseph', name: 'visitor.blog.saint_joseph.index')]
-    public function index_saint_joseph(
-        CategoryRepository $categoryRepository,
-        TagRepository $tagRepository,
-        PostRepository $postRepository,
-        CityRepository $cityRepository,
-    ): Response
-    {
-
-        $categories  = $categoryRepository->findAll();
-        $tags        = $tagRepository->findAll();
-        $posts       = $postRepository->findBy(['isPublished' => true]);
-       
-        return $this->render('pages/visitor/blog/saint_joseph/index.html.twig', [
-        'categories' => $categories, 
-        'tags' => $tags, 
-        'posts' => $posts,
-    ]);
-    
-}
-
-#[Route('/blog/saint-philippe', name: 'visitor.blog.saint_philippe.index')]
-public function index_saint_philippe(
-    CategoryRepository $categoryRepository,
-    TagRepository $tagRepository,
-    PostRepository $postRepository,
-    CityRepository $cityRepository,
-    ): Response
-    {
-        
-        $categories  = $categoryRepository->findAll();
-        $tags        = $tagRepository->findAll();
-        $cities      = $cityRepository->findAll(['slug' => 'saint-philippe']);
-        $posts       = $postRepository->findBy(['isPublished' => true]);
-
-
-        
-        return $this->render('pages/visitor/blog/saint_philippe/index.html.twig', compact('categories', 'tags', 'posts', 'cities'));
-        
-    }
-    
-    #[Route('/blog/petite-ile', name: 'visitor.blog.petite_ile.index')]
-    public function index_petite_ile(
-        CategoryRepository $categoryRepository,
-        TagRepository $tagRepository,
-        PostRepository $postRepository,
-        CityRepository $cityRepository,
+        #[Route('/blog', name: 'visitor.blog.index')]
+        public function index(
+            CategoryRepository $categoryRepository,
+            TagRepository $tagRepository,
+            PostRepository $postRepository,
+            CityRepository $cityRepository,
+            PaginatorInterface $paginator,
+            Request $request,
         ): Response
         {
             
+            $ville = new City();
             $categories  = $categoryRepository->findAll();
             $tags        = $tagRepository->findAll();
-            $cities      = $cityRepository->findAll(['slug' => 'petite-ile']);
+            $cities      = $cityRepository->findAll();
             $posts       = $postRepository->findBy(['isPublished' => true]);
             
-            
-            return $this->render('pages/visitor/blog/petite_ile/index.html.twig', compact('categories', 'tags', 'posts', 'cities'));
-            
+            $posts_paginated = $paginator->paginate(
+                $posts, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+
+        
+        return $this->render('pages/visitor/blog/index.html.twig', compact('categories', 'tags', 'posts', 'cities', 'posts_paginated'));
+        
         }
+
+  
         
         #[Route('/blog/post/{id<\d+>}/{slug}', name: 'visitor.blog.post.show')]
-        public function showSaintJoseph(Post $post) : Response
+        public function show(Post $post) : Response
         {
-            return $this->render('pages/visitor/blog/saint_joseph/show.html.twig', compact('post'));
+            return $this->render('pages/visitor/blog/show.html.twig', compact('post'));
         }
+
+
         
         #[Route('/blog/posts/filter_by_category/{id<\d+>}/{slug}', name: 'visitor.blog.posts.filter_by_category')]
         public function filterByCategory(
@@ -87,22 +62,82 @@ public function index_saint_philippe(
             CategoryRepository $categoryRepository,
             TagRepository $tagRepository,
             PostRepository $postRepository,
+            CityRepository $cityRepository,
+            PaginatorInterface $paginator,
+            Request $request,
             ) : Response
         {
             $categories = $categoryRepository->findAll();
             $tags       = $tagRepository->findAll();
+            $cities = $cityRepository->findAll();
             $posts      = $postRepository->filterPostByCategory($category->getId());
+
+            $posts_paginated = $paginator->paginate(
+                $posts, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
             
 
-            return $this->render('pages/visitor/blog/saint_joseph/index.html.twig', [
+            return $this->render('pages/visitor/blog/index.html.twig', [
                 'categories' => $categories, 
                 'tags' => $tags, 
-                'posts' => $posts,
+                'cities' => $cities,
+                'posts_paginated' => $posts_paginated
             ]);
+        }  
+        
+        #[Route('/blog/posts/filter_by_tag/{id<\d+>}/{slug}', name: 'visitor.blog.posts.filter_by_tag')]
+        public function filterByTag(
+            Tag $tag,
+            CategoryRepository $categoryRepository,
+            TagRepository $tagRepository,
+            PostRepository $postRepository,
+            CityRepository $cityRepository,
+            PaginatorInterface $paginator,
+            Request $request,
+            ) : Response
+        {
+            $categories = $categoryRepository->findAll();
+            $tags = $tagRepository->findAll();
+            $cities = $cityRepository->findAll();
+            $posts = $postRepository->filterPostByTag($tag);
+
+            $posts_paginated = $paginator->paginate(
+                $posts, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+            
+            
+            return $this->render('pages/visitor/blog/index.html.twig', compact('categories', 'tags', 'cities', 'posts_paginated'));
         }
 
+        #[Route('/blog/posts/filter_by_city/{id<\d+>}/{slug}', name: 'visitor.blog.posts.filter_by_city')]
+        public function filterByCity(
+            City $city,
+            CategoryRepository $categoryRepository,
+            TagRepository $tagRepository,
+            CityRepository $cityRepository,
+            PostRepository $postRepository,
+            PaginatorInterface $paginator,
+            Request $request,
+            ) : Response
+        {
+            $categories = $categoryRepository->findAll();
+            $tags = $tagRepository->findAll();
+            $cities = $cityRepository->findAll();
+            $posts = $postRepository->filterPostByCity($city);
 
-        
+            $posts_paginated = $paginator->paginate(
+                $posts, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+            
+            
+            return $this->render('pages/visitor/blog/index.html.twig', compact('categories', 'tags', 'cities', 'posts_paginated'));
+        }
         
     }
     
