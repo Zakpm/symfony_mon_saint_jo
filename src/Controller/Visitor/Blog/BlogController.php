@@ -5,16 +5,19 @@ namespace App\Controller\Visitor\Blog;
 use App\Entity\Tag;
 use App\Entity\City;
 use App\Entity\Post;
+use App\Entity\Comment;
 use App\Entity\Category;
+use App\Form\CommentFormType;
 use App\Repository\TagRepository;
 use App\Repository\CityRepository;
 use App\Repository\PostRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\CommentRepository;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class BlogController extends AbstractController
 {
@@ -49,9 +52,31 @@ class BlogController extends AbstractController
   
         
         #[Route('/blog/post/{id<\d+>}/{slug}', name: 'visitor.blog.post.show')]
-        public function show(Post $post) : Response
+        public function show(Post $post, Request $request, CommentRepository $commentRepository ) : Response
         {
-            return $this->render('pages/visitor/blog/show.html.twig', compact('post'));
+            $comment = new Comment();
+            $form = $this->createForm(CommentFormType::class, $comment);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+
+                $comment->setPost($post);
+                $comment->setUser($this->getUser());
+                $commentRepository->save($comment, true);
+
+                $this->addFlash("success", "Les commentaire a été envoyé.");
+                return $this->redirectToRoute('visitor.blog.post.show', [
+                    'id' => $post->getId(),
+                    'slug' => $post->getSlug()
+                ]);
+            }
+
+            return $this->render('pages/visitor/blog/show.html.twig',[
+                'post' => $post,
+                'form' => $form->createView()
+
+            ]);
         }
 
 

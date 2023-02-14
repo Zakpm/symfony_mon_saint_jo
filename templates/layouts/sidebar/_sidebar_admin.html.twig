@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="bg-dark" id="sidebar-wrapper">
     <div class="sidebar-brand sidebar-heading text-center py-4 text-white fs-4 fw-bold text-uppercase border-bottom">
-        <img class="navbar-brand" src="{{ asset('images/logo_monsaintjo.png') }}" alt="Le logo du site MonSaintJo">
+        <img class="sidebarlogo-brand" src="{{ asset('images/logo_monsaintjo.png') }}" alt="Le logo du site MonSaintJo">
     </div>
     <div class="bg-dark list-group list-group-flush my-3">
         <a href="{{ path('admin.home.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
@@ -16,9 +16,10 @@
                 class="fas fa-solid fa-book me-2"></i>Contacts</a>
         <a href="{{ path('admin.user.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i 
                 class="fas fa-solid fa-user me-2"></i>Utilisateurs</a>
-        <a href="" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+        <a href="{{ path('admin.comment.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                 class="fas fa-comment-dots me-2"></i>Commentaires</a>
         <a href="{{ path('admin.city.index') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-city"></i> Villes</a>
+        
         <a href="{{ path('app.logout') }}" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                 class="fas fa-power-off me-2 text-danger"></i>Déconnexion</a>
     </div>

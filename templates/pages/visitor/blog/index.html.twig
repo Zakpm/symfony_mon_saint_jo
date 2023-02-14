@@ -6,20 +6,22 @@
 
 {% block main %}
 
+
+
 <div class="container text-center my-2">
     <div class="row align-items-start">
             {% if cities|length == 0 %}
             <li><a  href="#">Aucun</a></li>
             {% else %}
             {% for city in cities %}
-            <div class="col">
-            <li><a  href="{{ path('visitor.blog.posts.filter_by_city', {'id': city.id, 'slug': city.slug}) }}">{{ city.name }}</a></li>
+            <div class="d-grid gap-2 col-3 mx-auto">
+                <button class="btn msj-bg-dark" type="button"><a class="text-white" href="{{ path('visitor.blog.posts.filter_by_city', {'id': city.id, 'slug': city.slug}) }}">{{ city.name }}</a></button>
             </div>
             {% endfor %}
         {% endif %}
     </div>
 </div>
-    <h1 class="text-center my-3 display-5">MonSaintJo</h1> 
+    <h1 class="text-center my-3 display-5">Mon Saint-Jo</h1> 
     
 <div class="container-fluid">
 
