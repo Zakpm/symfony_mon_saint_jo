@@ -29,7 +29,7 @@ class BlogController extends AbstractController
             CityRepository $cityRepository,
             PaginatorInterface $paginator,
             Request $request,
-        ): Response
+        ): Response 
         {
             
             $ville = new City();
