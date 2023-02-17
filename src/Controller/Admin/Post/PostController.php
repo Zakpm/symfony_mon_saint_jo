@@ -65,7 +65,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * Ctte méthode permet de lire l'article 
+     * Cette méthode permet de lire l'article 
      * dont l'identifiant est passé en paramètre à la route
      */
     #[Route('/admin/post/{id<[0-9]+>}/show', name: 'admin.post.show')]

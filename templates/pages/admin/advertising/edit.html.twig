@@ -1,0 +1,47 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Modifier la pub{% endblock %}
+
+{% block description %}Modifier la pub{% endblock %}
+
+{% block tiny %}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#post_form_content'
+        });
+    </script>
+{% endblock %}
+
+{% block jquery %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block main %}
+    <h1 class="text-center my-3 display-5">Modifier l'article</h1>
+
+    <div class="container mt-5 pb-3">
+        {{ form_start(form) }}
+            <div class="mb-3">
+                <label for="advertising_form_title">Titre</label>
+                <div class="text-danger">{{ form_errors(form.title) }}</div>
+                {{ form_widget(form.title, {'attr': {'class': "form-control", "autofocus": true}}) }}
+            </div>            
+            <div class="mb-3">
+                <label for="advertising_form_imageFile_file">Image</label>
+                <div class="text-danger">{{ form_errors(form.imageFile) }}</div>
+                {{ form_widget(form.imageFile, {'attr': {'class': "form-control"}}) }}
+                {{ form_widget(form.image, {'attr': {'class': "d-none"}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="advertising_form_content">Contenu</label>
+                <div class="text-danger">{{ form_errors(form.content) }}</div>
+                {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 15}}) }}
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Sauvegarder" formnovalidate />
+            </div>
+        {{ form_end(form) }}
+      </div>
+
+{% endblock %}

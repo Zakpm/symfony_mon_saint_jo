@@ -1,0 +1,23 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Publicité numéro : {{ advertising.id }}{% endblock %}
+
+{% block description %}Publicité numéro : {{ advertising.id }}{% endblock %}
+
+{% block main %}
+<div class="container mt-3">
+
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(advertising, 'imageFile') }}" class="img-fluid">
+    </div>
+
+    <div class="container my-4 text-center">
+        <h1>{{ advertising.title }}</h1>
+    </div>
+
+    <div class="container my-3">
+        {{ advertising.content | raw }}
+    </div>
+
+</div>
+{% endblock %}

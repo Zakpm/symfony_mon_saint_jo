@@ -32,7 +32,6 @@ class BlogController extends AbstractController
         ): Response 
         {
             
-            $ville = new City();
             $categories  = $categoryRepository->findAll();
             $tags        = $tagRepository->findAll();
             $cities      = $cityRepository->findAll();
