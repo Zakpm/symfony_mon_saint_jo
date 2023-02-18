@@ -48,6 +48,7 @@
                     <th>Ville</th>
                     <th>Tags</th>
                     <th>Publié ?</th>
+                    <th>À la une</th>
                     <th>Contenu</th>
                     <th>Options</th>
                 </tr>
@@ -86,6 +87,21 @@
                                 <form action="{{ path('admin.post.publish', {'id': post.id}) }}" method="POST">
                                     <div class="form-check-inline form-switch">
                                         <input onclick=" return confirm('Confimer cette action ?')" onchange="this.form.submit()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ post.ispublished ? 'checked' : ''}}>
+                                        {# <label class="form-check-label" for="flexSwitchCheckChecked"></label> #}
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column justify-content-center align-content-center">
+                                {% if post.isFeatured %}
+                                    <span> 🥳 Publié à la une</span>
+                                {% else %}
+                                    <span>Pas encore 😴</span>    
+                                {% endif %}
+                                <form action="{{ path('admin.post.feature', {'id': post.id}) }}" method="POST">
+                                    <div class="form-check-inline form-switch">
+                                        <input onclick=" return confirm('Confimer cette action ?')" onchange="this.form.submit()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ post.isFeatured ? 'checked' : ''}}>
                                         {# <label class="form-check-label" for="flexSwitchCheckChecked"></label> #}
                                     </div>
                                 </form>

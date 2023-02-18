@@ -47,7 +47,7 @@ class PostRepository extends ServiceEntityRepository
              ->andWhere('p.category = :category_id')
              ->setParameter('val', true)
              ->setParameter('category_id', $category_id)
-             ->orderBy('p.id', "ASC")
+             ->orderBy('p.id', "DESC")
              ->getQuery()
              ->getResult()
         ;     
@@ -78,6 +78,7 @@ class PostRepository extends ServiceEntityRepository
                     ->andWhere('p.isPublished = :val')
                     ->setParameter('slug', $city->getSlug())
                     ->setParameter('val', true)
+                    ->orderBy('p.id', "DESC")
                     ->getQuery()
                     ->getResult()
         ;

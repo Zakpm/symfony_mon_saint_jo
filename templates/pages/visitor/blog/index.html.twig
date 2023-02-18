@@ -71,7 +71,7 @@
                                     {% if post.image %}
                                         <img class="img-fluid rounded-start" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('visitor_blog_post_image_thumbnail')  }}" alt="{{ post.title }}">
                                     {% else %}
-                                        <img class="img-fluid" src="{{ asset('images/static/admin/post/default-post-image.jpg') }}" />
+                                        <img class="img-fluid rounded-start" src="{{ asset('images/static/admin/post/default-post-image.jpg') }}" />
                                     {% endif %}
                                 </div>
                                 <div class="col-md-8">

@@ -111,8 +111,15 @@ class Post
     #[ORM\ManyToMany(targetEntity: City::class, inversedBy: 'posts')]
     private Collection $cities;
 
+
+
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class)]
     private Collection $comments;
+
+    
+
+    #[ORM\Column(options: array("default" => false))]
+    private ?bool $isFeatured = null;
 
   
 
@@ -120,6 +127,7 @@ class Post
     public function __construct()
     {
         $this->isPublished = false;
+        $this->isFeatured = false;
         $this->tags = new ArrayCollection();
         $this->cities = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -353,4 +361,17 @@ class Post
 
         return $this;
     }
+
+    public function isIsFeatured(): ?bool
+    {
+        return $this->isFeatured;
+    }
+
+    public function setIsFeatured(bool $isFeatured): self
+    {
+        $this->isFeatured = $isFeatured;
+
+        return $this;
+    }
+    
 }

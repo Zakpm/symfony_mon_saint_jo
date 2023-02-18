@@ -20,10 +20,14 @@
 
     <div class="table-responsive">
         <table class=" table table-hover table-striped text-center">
-            <thead>
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th colspan="7">Bannières pub</th>
+                </tr>
                 <tr>
                     <th>Id</th>
                     <th>Titre</th>
+                    <th>Slug</th>
                     <th>Image</th>
                     <th>Contenu</th>
                     <th>Publié ?</th>
@@ -35,6 +39,7 @@
                 <tr>
                     <td>{{ advertising.id }}</td>
                     <td>{{ advertising.title }}</td>
+                    <td>{{ advertising.slug }}</td>
                     <td>
                         {% if advertising.image %}
                             <img src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
@@ -60,11 +65,11 @@
                     </td>
                     <td>
                         <a class="text-secondary m-2" href="{{ path('admin.advertising.edit', {'id' : advertising.id}) }}" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
-                            {# <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_advertising_{{ advertising.id }}').submit()"  class="text-danger m-2" href="#" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a> #}
+                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_advertising_{{ advertising.id }}').submit()"  class="text-danger m-2" href="#" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
                             
-                            {# <form class="delete_advertising_{{ advertising.id }}" action="{{ path('admin.advertising.delete', {'id' : advertising.id}) }}" method="POST" class="d-none">
+                            <form class="delete_advertising_{{ advertising.id }}" action="{{ path('admin.advertising.delete', {'id' : advertising.id}) }}" method="POST" class="d-none">
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('advertising_' ~ advertising.id ) }}" />
-                            </form> #}
+                            </form>
                     </td>
                 </tr>
                 {% endfor %}

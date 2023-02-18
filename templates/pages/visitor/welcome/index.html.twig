@@ -5,6 +5,19 @@
 {# div card #}
     <div class="container text-center my-2">
         <div class="row align-items-start">
+
+          {% for advertising in ads %}
+              <div>
+                <div class="card text-bg-dark mt-3">
+                  <img height="100px" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_blog_post_image_thumbnail') }}" class="img" alt="">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+              </div>    
+          {% endfor %}
+
            <h1 class="my-3 display-5">Actualités à la une</h1>
         </div>
         <div class="row mt-5">
@@ -30,24 +43,43 @@
                   </div>
               </div>
           {% endfor %}
-          <div>
-            <div class="card text-bg-dark mt-3">
-              <img height="100" src="{{ asset('images/static/admin/post/beach.jpg') | imagine_filter('visitor_blog_post_image_thumbnail') }}" class="img" alt="">
-              <div class="card-img-overlay">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural. oihjfoiehfiojzeoifjoizjf ofenoizje kjfnoef kjnfozen jnfej</p>
+
+          <hr class="my-4" />
+
+          {% for post in posts1 %}
+          <div class="card-group col-lg col-sm-9 mx-auto my-3">
+              <div class="card col mx-auto" style="width: 18rem; height: 15rem;">
+
+                {% if post.image %}
+                <img src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ post.title }}">
+            {% else %}
+                <img height="80" width="100" src="{{ asset('images/static/admin/post/default-post-image.jpg') }}" />
+            {% endif %}
+
+                <div class="card-body">
+                  <h5 class="card-title">{{ post.title }}</h5>
+                  <p class="card-text">{{ post.content|striptags|u.truncate(50, '...')|raw }}</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
               </div>
-            </div>
           </div>
+          {% endfor %}
+
+          {# div pub #}
+          {% for advertising in ads %}
+              <div>
+                <div class="card text-bg-dark mt-3">
+                  <img height="100px" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_blog_post_image_thumbnail') }}" class="img" alt="">
+                  <div class="card-img-overlay">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+              </div>    
+          {% endfor %}
 
         </div>
     </div>
 
-{# div pub #}
-<div class="container">
-  <div class="row">
-    
-  </div>
-</div>
 
 {% endblock %}

@@ -37,6 +37,11 @@ class Advertising
 
 
 
+    #[ORM\Column(Types::TEXT, nullable: true)]
+    private ?string $content = null;
+
+
+
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
@@ -50,14 +55,11 @@ class Advertising
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image = null;
 
-
-    #[ORM\Column(Types::TEXT, nullable: true)]
-    private ?string $content = null;
     
 
     #[ORM\Column(options: array("default" => false))]
     private ?bool $isPublished = null;
-
+    
 
 
     #[Gedmo\Timestampable(on: 'create')]
@@ -119,7 +121,7 @@ class Advertising
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 

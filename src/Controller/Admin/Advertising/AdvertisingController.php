@@ -17,7 +17,7 @@ class AdvertisingController extends AbstractController
     {
         $ads = $advertisingRepository->findAll();
         return $this->render('pages/admin/advertising/index.html.twig', [
-            'ads' => $ads
+            'ads' => $ads,
         ]);
     }
 
@@ -43,7 +43,7 @@ class AdvertisingController extends AbstractController
     }
 
     /**
-     * Cette méthode permet de lire l'article 
+     * Cette méthode permet de lire la pub 
      * dont l'identifiant est passé en paramètre à la route
      */
     #[Route('/admin/advertising/{id<[0-9]+>}/show', name: 'admin.advertising.show')]
@@ -109,7 +109,7 @@ class AdvertisingController extends AbstractController
         if ( $this->isCsrfTokenValid('advertising_' . $advertising->getId(), $request->request->get('_csrf_token')) ) 
         {
             $advertisingRepository->remove($advertising, true);
-            $this->addFlash('success', "La pub " . $advertising->getTitle() ." a été suppriméé.");
+            $this->addFlash('success', "La pub " . $advertising->getTitle() ." a été supprimée.");
         }
 
         return $this->redirectToRoute('admin.advertising.index');

@@ -18,7 +18,7 @@ class PostController extends AbstractController
     #[Route('/admin/post/list', name: 'admin.post.index')]
     public function index(PostRepository $postRepository): Response
     {
-        $posts = $postRepository->findBy([], ['createdAt' => 'desc']);
+        $posts = $postRepository->findBy([], ['createdAt' => 'DESC']);
         return $this->render('pages/admin/post/index.html.twig', compact('posts'));
     }
 
@@ -96,6 +96,32 @@ class PostController extends AbstractController
             $post->setPublishedAt(null);
             $postRepository->save($post, true);
             $this->addFlash("success", "Votre article vient d'être retiré de la liste de publication.");
+        }
+
+        return $this->redirectToRoute("admin.post.index");
+    }
+
+    #[Route('/admin/post/{id<[0-9]+>}/feature', name: 'admin.post.feature')]
+    public function feature(
+        Post $post, 
+        PostRepository $postRepository, 
+        CityRepository $cityRepository,
+        ) : Response
+    {
+
+        if ($post->isIsFeatured() == false) {
+
+            $post->setIsFeatured(true);
+            // $post->setPublishedAt(new \DateTimeImmutable('now'));
+            $postRepository->save($post, true);
+            $this->addFlash("success", "Votre article vient d'être publié à la une.");
+        }
+        else {
+
+            $post->setIsFeatured(false);
+            // $post->setPublishedAt(null);
+            $postRepository->save($post, true);
+            $this->addFlash("success", "Votre article vient d'être retiré de la liste de publication à la une.");
         }
 
         return $this->redirectToRoute("admin.post.index");

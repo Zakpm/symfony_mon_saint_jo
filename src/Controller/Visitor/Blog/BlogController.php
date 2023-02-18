@@ -35,7 +35,7 @@ class BlogController extends AbstractController
             $categories  = $categoryRepository->findAll();
             $tags        = $tagRepository->findAll();
             $cities      = $cityRepository->findAll();
-            $posts       = $postRepository->findBy(['isPublished' => true]);
+            $posts       = $postRepository->findBy(['isPublished' => true], ['createdAt' => 'DESC']);
             
             $posts_paginated = $paginator->paginate(
                 $posts, /* query NOT result */
