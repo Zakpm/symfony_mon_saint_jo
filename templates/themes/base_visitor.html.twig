@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    {# Encodage des caractères #}
     <meta charset="UTF-8">
+
+    {# Activation de la compatibilité de l'affichage de la page avec Internet Explorer #}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {# Minim de responsive design #}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Chargement des balises meta pour le SEO #}
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content= "Mon Saint-Jo information {% block description %}{% endblock %}" />
+    <meta name="keywords" content="Saint-Joseph, informations Réunion, actualité Réunion, backend, php, php8, framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+
+    {# Le titre affiché dans l'onglet de la page #}
     <title>Mon Saint-Jo  {% block title %}{% endblock %}</title>
 
     {# Favicon #}

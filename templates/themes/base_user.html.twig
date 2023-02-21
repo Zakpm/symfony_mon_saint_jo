@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    {# Encodage des caractères #}
     <meta charset="UTF-8">
+
+    {# Activation de la compatibilité de l'affichage de la page avec Internet Explorer #}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {# Minim de responsive design #}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Chargement des balises meta pour le SEO #}
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content= "Mon Saint-Jo information {% block description %}{% endblock %}" />
+
+    {# Le titre affiché dans l'onglet de la page #}
     <title>Mon Saint Jo  {% block title %}{% endblock %}</title>
 
     {# Favicon #}
@@ -29,6 +40,12 @@
     {% block webpack_js %}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
+
+     {# Font awesome #}
+     {% block font_awsome %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     {% endblock %}
+ 
 
     
 </head>

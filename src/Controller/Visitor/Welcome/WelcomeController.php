@@ -42,7 +42,7 @@ class WelcomeController extends AbstractController
         $tags        = $tagRepository->findAll();
         $cities      = $cityRepository->findAll();
         $posts       = $postRepository->findBy(['isPublished' => true, 'isFeatured' => true],['createdAt' => 'DESC'], $limit = 3);
-        $posts1      = $postRepository->findBy(['isPublished' => true, 'isFeatured' => false], ['createdAt' => 'DESC'], $limit = 7);
+        $posts1      = $postRepository->findBy(['isPublished' => true, 'isFeatured' => false], ['createdAt' => 'DESC'], $limit = 6);
         $ads         = $advertisingRepository->findBy(['isPublished' => true]);
     
     return $this->render('pages/visitor/welcome/index.html.twig', compact('categories', 'tags', 'posts', 'cities', 'ads', 'posts1'));

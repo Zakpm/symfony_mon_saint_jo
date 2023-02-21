@@ -14,8 +14,8 @@
             <li><a  href="#">Aucun</a></li>
             {% else %}
             {% for city in cities %}
-            <div class="d-grid gap-2 col mx-auto mt-2">
-                <a type="button" class="text-white btn msj-bg-dark" href="{{ path('visitor.blog.posts.filter_by_city', {'id': city.id, 'slug': city.slug}) }}">{{ city.name }}</a>
+            <div class="d-grid gap-2 col-md-3 mx-auto mt-2">
+                <a type="button" class="text-white btn msj-bg-dark" href="{{ path('visitor.blog.posts.filter_by_city', {'id': city.id, 'slug': city.slug}) }}"><u>{{ city.name }}</u></a>
             </div>
             {% endfor %}
         {% endif %}
