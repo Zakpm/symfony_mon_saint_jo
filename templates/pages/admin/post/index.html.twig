@@ -95,9 +95,9 @@
                         <td>
                             <div class="d-flex flex-column justify-content-center align-content-center">
                                 {% if post.isFeatured %}
-                                    <span> 🥳 Publié à la une</span>
+                                    <span> 💯 Publié à la une</span>
                                 {% else %}
-                                    <span>Pas encore 😴</span>    
+                                    <span>0️⃣</span>    
                                 {% endif %}
                                 <form action="{{ path('admin.post.feature', {'id': post.id}) }}" method="POST">
                                     <div class="form-check-inline form-switch">

@@ -15,4 +15,5 @@ class HomeController extends AbstractController
         $posts = $postRepository->findAll();
         return $this->render('pages/admin/home/index.html.twig', compact('posts') );
     }
+   
 }

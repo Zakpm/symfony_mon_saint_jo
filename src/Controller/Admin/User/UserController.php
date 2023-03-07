@@ -53,7 +53,7 @@ class UserController extends AbstractController
         if ( $this->isCsrfTokenValid('user_' . $user->getId(), $request->request->get('_csrf_token')) ) 
         {
           
-            $posts = $postRepository->findAll();
+            // $posts = $postRepository->findAll();
             $posts = $postRepository->findBy(['user' => $user->getId()]);
 
             foreach ($posts as $post) 
