@@ -48,7 +48,7 @@ class Advertising
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_post', fileNameProperty: 'image')]
+    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
 

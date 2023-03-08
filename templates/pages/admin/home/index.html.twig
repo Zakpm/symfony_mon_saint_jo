@@ -14,42 +14,49 @@
                 <div class="card-header">Catégorie</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de catégorie</h5>
-                  <p class="card-text"> eifjpozekf</p>
+                  <p class="card-text">{{ categories|length }}</p>
                 </div>
               </div>
               <div class="card text-bg-secondary mb-3 mx-auto" style="max-width: 18rem;">
                 <div class="card-header">Articles</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre d'article</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{ posts|length }}</p>
                 </div>
               </div>
               <div class="card text-bg-success mb-3 mx-auto" style="max-width: 18rem;">
                 <div class="card-header">Tags</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de tag</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{ tags|length }}</p>
                 </div>
               </div>
               <div class="card text-bg-danger mb-3 mx-auto" style="max-width: 18rem;">
                 <div class="card-header">Contacts</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de contact</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{ contacts|length }}</p>
                 </div>
               </div>
               <div class="card text-bg-warning mb-3 mx-auto" style="max-width: 18rem;">
-                <div class="card-header">Utilisateurs</div>
+                <div class="card-header">Villes</div>
                 <div class="card-body">
-                  <h5 class="card-title">Nombre d'utilisateur</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">Nombre de ville</h5>
+                  <p class="card-text">{{ cities|length }}</p>
                 </div>
               </div>
               <div class="card text-bg-info mb-3 mx-auto" style="max-width: 18rem;">
                 <div class="card-header">Commentaires</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de commentaire</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">{{ comments|length }}</p>
+                </div>
+              </div>
+              <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+                <div class="card-header">Utilisateurs</div>
+                <div class="card-body">
+                  <h5 class="card-title">Nombre d'utilisateur</h5>
+                  <p class="card-text">{{ users|length }}</p>
                 </div>
               </div>
               

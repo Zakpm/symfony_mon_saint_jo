@@ -6,10 +6,11 @@
     <div class="container text-center my-2">
         <div class="row align-items-start">
 
+          {# div pub #}
           {% for advertising in ads %}
               <div>
                 <div class="card text-bg-dark mt-3">
-                  <img height="100px" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"  alt="">
+                  <img style="width: 100%;" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"  alt="">
                   <div class="card-img-overlay">
                     <h5 class="card-title"></h5>
                     <p class="card-text"></p>
@@ -72,11 +73,9 @@
 
           {# div pub #}
           {% for advertising in ads %}
-              <div>
-                <div class="card text-bg-dark mt-3">
-                  <div class="row">
-                      <img height="100px" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}" alt="">
-                  </div>
+          <div>
+            <div class="card text-bg-dark mt-3">
+                <img style="width: 100%;" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"  alt="">
                   <div class="card-img-overlay">
                     <h5 class="card-title"></h5>
                     <p class="card-text"></p>

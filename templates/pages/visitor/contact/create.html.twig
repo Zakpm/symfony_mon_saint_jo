@@ -4,6 +4,10 @@
 
 {% block description %}Contact{% endblock %}
 
+{% block aos_css %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+{% endblock %}
+
 {% block main %}
     <h1 class="text-center my-3 display-5">Contact</h1>
     
@@ -18,7 +22,7 @@
         <div class="row">
 
             <div class="col-md-3 mt-5">
-                <img src="{{ asset('images/static/visitor/contact/contact.png') }}" class="img-fluid" />
+                <img data-aos="fade-right" data-aos-duration="3000" src="{{ asset('images/static/visitor/contact/contact.png') }}" class="img-fluid" />
             </div>
 
             <div class="col-md-9 my-5">
@@ -72,4 +76,11 @@
             
         </div>
     </div>
+{% endblock %}
+
+{% block aos_js %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 {% endblock %}

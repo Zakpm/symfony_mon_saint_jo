@@ -32,6 +32,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
+    {% block aos_css %}{% endblock %}
+
     {# Chargement de bootstrap et css depuis webpack encore #}
     {% block webpack_css %}
     {{ encore_entry_link_tags('app') }}
@@ -61,5 +63,7 @@
 
     {# Pieds de page #}
     {% include "layouts/footer/_footer_visitor.html.twig" %}
+
+    {% block aos_js %}{% endblock %}
 </body>
 </html>

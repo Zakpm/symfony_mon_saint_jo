@@ -39,14 +39,14 @@ class CategoryRepository extends ServiceEntityRepository
         }
     }
 
-    public function countByCategory()
-    {
-        $qb = $this->createQueryBuilder('e');
+    // public function countByCategory()
+    // {
+    //     $qb = $this->createQueryBuilder('e');
      
-        $qb ->select($qb->expr()->count('e'));
+    //     $qb ->select($qb->expr()->count('e'));
      
-        return (int) $qb->getQuery()->getSingleScalarResult();
-    }
+    //     return (int) $qb->getQuery()->getSingleScalarResult();
+    // }
 
 //    /**
 //     * @return Category[] Returns an array of Category objects

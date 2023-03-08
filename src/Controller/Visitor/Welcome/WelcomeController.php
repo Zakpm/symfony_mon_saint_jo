@@ -41,7 +41,7 @@ class WelcomeController extends AbstractController
         $categories  = $categoryRepository->findAll();
         $tags        = $tagRepository->findAll();
         $cities      = $cityRepository->findAll();
-        $posts       = $postRepository->findBy(['isPublished' => true, 'isFeatured' => true],['createdAt' => 'DESC'], $limit = 3);
+        $posts       = $postRepository->findBy(['isPublished' => true, 'isFeatured' => true], ['createdAt' => 'DESC'], $limit = 3);
         $posts1      = $postRepository->findBy(['isPublished' => true, 'isFeatured' => false], ['createdAt' => 'DESC'], $limit = 6);
         $ads         = $advertisingRepository->findBy(['isPublished' => true]);
     
