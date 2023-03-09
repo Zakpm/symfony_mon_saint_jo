@@ -1,5 +1,13 @@
 {% extends "themes/base_visitor.html.twig" %}
 
+{% block title %}- Bienvenue{% endblock %}
+
+{% block description %}Bienvenue{% endblock %}
+
+{% block aos_css %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+{% endblock %}
+
 {% block main %}
 
 {# div card #}
@@ -19,14 +27,14 @@
               </div>    
           {% endfor %}
 
-           <h1 class="my-3 display-5"><u> À la une</u></h1>
+           <h1 id="title" class="my-3 display-5" style="color:rgb(1, 57, 90)">À la une</h1>
         </div>
 
         {# card à la une #}
         <div class="row mt-4">
           {% for post in posts %}
               <div class="card-group col-lg col-sm-9 mx-auto my-3">
-                  <div class="card col shadow">
+                  <div data-aos="flip-left" data-aos-duration="2500" class="card col shadow">
                     {% if post.image %}
                       <img class="img-fluid rounded-start" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('visitor_blog_post_image_thumbnail')  }}" alt="{{ post.title }}">
                     {% else %}
@@ -47,14 +55,13 @@
           {% endfor %}
 
           <hr class="my-4" />
-          <p>Autres actualités</p>
-
+          
           {# autres actualité #}
+          <p><u>Autres actualités</u></p>
+
           {% for post in posts1 %}
           <div class="card-group col-lg col-sm-9 mx-auto my-3">
-              <div class="card col mx-auto">
-
-                
+              <div class="card col mx-auto" data-aos="fade-left" data-aos-duration="2000">
                 {% if post.image %}
                   <img class="img-fluid card-img-top" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('visitor_blog_post_image_thumbnail')  }}" alt="{{ post.title }}">
                 {% else %}
@@ -74,7 +81,7 @@
           {# div pub #}
           {% for advertising in ads %}
           <div>
-            <div class="card text-bg-dark mt-3">
+            <div class="card text-bg-dark mt-4">
                 <img style="width: 100%;" src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"  alt="">
                   <div class="card-img-overlay">
                     <h5 class="card-title"></h5>
@@ -86,6 +93,11 @@
 
         </div>
     </div>
+{% endblock %}
 
-
+{% block aos_js %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 {% endblock %}

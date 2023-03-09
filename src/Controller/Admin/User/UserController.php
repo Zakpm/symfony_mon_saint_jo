@@ -67,8 +67,8 @@ class UserController extends AbstractController
 
             $this->addFlash('success', "L'utilisateur " . $user->getFirstName() . " " . $user->getLastName() . " a été supprimé.");
         }
-
         return $this->redirectToRoute('admin.user.index');
+
     }
 
 }

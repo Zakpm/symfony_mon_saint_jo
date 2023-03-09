@@ -5,7 +5,7 @@
 {% block description %}Inscription{% endblock %}
 
 {% block main %}
-    <h1 class="text-center my-3 display-5">Inscription</h1>
+    <h1 id="title" class="text-center my-3 display-5" style="color:rgb(1, 57, 90)" >Inscription</h1>
 
     <div class="container my-5">
         <div class="row">
@@ -26,7 +26,7 @@
 
                     <div class="row">
                         <div class="col-12 mb-3">
-                            <label for="registration_form_email">Email (Non publiée)</label>
+                            <label for="registration_form_email">Email</label>
                             <div class="text-danger">{{ form_errors(registrationForm.email) }}</div>
                             {{form_widget(registrationForm.email, {'attr' : {'class': 'form-control'}} )}}
                         </div>
@@ -69,17 +69,18 @@
                                                 2. Utilisation du site : L'utilisateur s'engage à utiliser le site web conformément à la loi et aux règles en vigueur et à ne pas porter atteinte aux droits de tiers. <br/>
                                                 3. Informations personnelles : L'utilisateur est responsable de l'exactitude et de l'exhaustivité des informations fournies lors de son inscription. Il s'engage à les mettre à jour en cas de modification. <br/>
                                                 4. Confidentialité : Les informations personnelles de l'utilisateur seront traitées conformément à la politique de confidentialité du site web. <br/>
-                                                5. Responsabilité : Le site web ne peut être tenu responsable des dommages directs ou indirects causés par l'utilisation du site. <br/>
-                                                6. Propriété intellectuelle : Les contenus publiés sur le site web sont protégés par les droits d'auteur. L'utilisateur s'engage à ne pas les reproduire, copier, ou exploiter à des fins commerciales sans autorisation préalable. <br/>
-                                                7. Suspension ou résiliation de compte : Le site web se réserve le droit de suspendre ou de résilier le compte de l'utilisateur en cas de non-respect des présentes conditions générales d'utilisation. <br/>
-                                                8. Modifications des conditions générales : Le site web se réserve le droit de modifier à tout moment les présentes conditions générales d'utilisation. L'utilisateur sera informé de ces modifications et devra les accepter pour continuer à utiliser le site web. <br/>
-                                                9. Cookies : Le site web utilise des cookies pour améliorer l'expérience de l'utilisateur. L'utilisateur peut les désactiver à tout moment. <br/>
-                                                10. Liens hypertextes : Le site web peut contenir des liens hypertextes vers des sites web tiers. Le site web n'est pas responsable des contenus de ces sites web. <br/>
-                                                11. Limitation de responsabilité : Le site web ne peut être tenu responsable des erreurs, omissions, interruptions, retard, virus informatiques, perte de données, et tout autre dommage résultant de l'utilisation du site web. <br/>
-                                                12. Utilisation du contenu : L'utilisateur s'engage à utiliser le contenu du site web à des fins personnelles et non commerciales. <br/>
-                                                13. Publicités : Le site web peut contenir des publicités. L'utilisateur s'engage à ne pas utiliser de bloqueur de publicités pour accéder au site web. <br/>
-                                                14. Contact : L'utilisateur peut contacter le site web à tout moment pour poser des questions ou signaler des problèmes. <br/>
-                                                15. Droit applicable et juridiction compétente : Les présentes conditions générales d'utilisation sont régies par le droit en vigueur et tout litige sera soumis à la juridiction compétente.
+                                                5. Protection de l'adresse e-mail : Nous prenons des mesures de sécurité raisonnables pour protéger vos informations personnelles contre tout accès non autorisé, utilisation ou divulgation. Nous ne vendons pas, ne louons pas et ne distribuons pas votre adresse e-mail à des tiers. <br/>
+                                                6. Responsabilité : Le site web ne peut être tenu responsable des dommages directs ou indirects causés par l'utilisation du site. <br/>
+                                                7. Propriété intellectuelle : Les contenus publiés sur le site web sont protégés par les droits d'auteur. L'utilisateur s'engage à ne pas les reproduire, copier, ou exploiter à des fins commerciales sans autorisation préalable. <br/>
+                                                8. Suspension ou résiliation de compte : Le site web se réserve le droit de suspendre ou de résilier le compte de l'utilisateur en cas de non-respect des présentes conditions générales d'utilisation. <br/>
+                                                9. Modifications des conditions générales : Le site web se réserve le droit de modifier à tout moment les présentes conditions générales d'utilisation. L'utilisateur sera informé de ces modifications et devra les accepter pour continuer à utiliser le site web. <br/>
+                                                10. Cookies : Le site web utilise des cookies pour améliorer l'expérience de l'utilisateur. L'utilisateur peut les désactiver à tout moment. <br/>
+                                                11. Liens hypertextes : Le site web peut contenir des liens hypertextes vers des sites web tiers. Le site web n'est pas responsable des contenus de ces sites web. <br/>
+                                                12. Limitation de responsabilité : Le site web ne peut être tenu responsable des erreurs, omissions, interruptions, retard, virus informatiques, perte de données, et tout autre dommage résultant de l'utilisation du site web. <br/>
+                                                13. Utilisation du contenu : L'utilisateur s'engage à utiliser le contenu du site web à des fins personnelles et non commerciales. <br/>
+                                                14. Publicités : Le site web peut contenir des publicités. L'utilisateur s'engage à ne pas utiliser de bloqueur de publicités pour accéder au site web. <br/>
+                                                15. Contact : L'utilisateur peut contacter le site web à tout moment pour poser des questions ou signaler des problèmes. <br/>
+                                                16. Droit applicable et juridiction compétente : Les présentes conditions générales d'utilisation sont régies par le droit en vigueur et tout litige sera soumis à la juridiction compétente.
                                             </p>
                                         </div>
                                         <div class="modal-footer">

@@ -8,7 +8,7 @@
 
 <div class="container">
 
-    <h1 class="text-center my-3 display-5">Demande de réinitialisation du mot de passe</h1>
+    <h1 id="title" class="text-center my-3 display-5" style="color:rgb(1, 57, 90)">Demande de réinitialisation du mot de passe</h1>
 
     {% for flash_error in app.flashes('reset_password_error') %}
     <div class="alert alert-danger" role="alert">{{ flash_error }}</div>

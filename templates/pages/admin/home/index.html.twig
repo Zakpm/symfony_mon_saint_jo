@@ -4,55 +4,59 @@
 
 {% block description %}Espace d'administration{% endblock %}
 
+{% block aos_css %}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+{% endblock %}
+
 {% block main %}
     <h1 class="text-center my-3 display-5">Espace d'admnistration</h1>
 
     <div class="container text-center col-lg-10 mx-auto">
         <div class="row">
           
-            <div class="card text-bg-primary mb-3 mx-auto" style="max-width: 18rem;">
+            <div class="card text-bg-primary mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Catégorie</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de catégorie</h5>
                   <p class="card-text">{{ categories|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-secondary mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-secondary mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Articles</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre d'article</h5>
                   <p class="card-text">{{ posts|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-success mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-success mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Tags</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de tag</h5>
                   <p class="card-text">{{ tags|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-danger mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-danger mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Contacts</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de contact</h5>
                   <p class="card-text">{{ contacts|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-warning mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-warning mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Villes</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de ville</h5>
                   <p class="card-text">{{ cities|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-info mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-info mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Commentaires</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre de commentaire</h5>
                   <p class="card-text">{{ comments|length }}</p>
                 </div>
               </div>
-              <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 18rem;">
+              <div class="card text-bg-dark mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
                 <div class="card-header">Utilisateurs</div>
                 <div class="card-body">
                   <h5 class="card-title">Nombre d'utilisateur</h5>
@@ -62,4 +66,11 @@
               
         </div>
     </div>
+{% endblock %}
+
+{% block aos_js %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 {% endblock %}
