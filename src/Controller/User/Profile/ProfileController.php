@@ -13,11 +13,11 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class ProfileController extends AbstractController
 {
-    #[Route('/user/home', name: 'user.home.index')]
-    public function index(): Response
-    {
-        return $this->render('pages/user/home/index.html.twig');
-    }
+    // #[Route('/user/home', name: 'user.home.index')]
+    // public function index(): Response
+    // {
+    //     return $this->render('pages/user/home/index.html.twig');
+    // }
 
     #[Route('/user/profile', name: 'user.profile.index')]
     public function index_profile(): Response

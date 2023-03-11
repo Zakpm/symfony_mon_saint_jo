@@ -6,4 +6,17 @@
 
 {% block main %}
     <h1 class="text-center my-3 display-5">Hello {{ app.user.firstName }} {{ app.user.lastName }} </h1>
+    
+        <div class="container text-center col-lg-10 mx-auto">
+            <div class="row">
+                <div class="card text-bg-secondary mb-3 mx-auto" style="max-width: 18rem;" data-aos="flip-up" data-aos-duration="1000">
+                    <div class="card-header">Commentaires</div>
+                    <div class="card-body">
+                    <h5 class="card-title">Nombre de commentaire</h5>
+                    <p class="card-text">{{ comments|length }}</p>
+                    </div>
+                </div>
+            </div>    
+        </div>        
+   
 {% endblock %}

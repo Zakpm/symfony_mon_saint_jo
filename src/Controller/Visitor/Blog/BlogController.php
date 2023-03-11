@@ -67,7 +67,7 @@ class BlogController extends AbstractController
                 $this->addFlash("success", "Les commentaire a été envoyé.");
                 return $this->redirectToRoute('visitor.blog.post.show', [
                     'id' => $post->getId(),
-                    'slug' => $post->getSlug()
+                    'slug' => $post->getSlug() 
                 ]);
             }
 
