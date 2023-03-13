@@ -22,7 +22,7 @@
         <div class="row">
 
             <div class="col-md-3 mt-5">
-                <img data-aos="fade-right" data-aos-duration="3000" src="{{ asset('images/static/visitor/contact/contact.png') }}" class="img-fluid" />
+                <img data-aos="fade-right" data-aos-duration="1500" src="{{ asset('images/static/visitor/contact/contact.png') }}" class="img-fluid" alt="Illustration d'une boîte aux lettre" />
             </div>
 
             <div class="col-md-9 my-5">
@@ -30,14 +30,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label>Prénom</label>
+                                <label for="contact_form_firstName">Prénom</label>
                                 <div class="text-danger">{{ form_errors(form.firstName) }}</div>
                                 {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label>Nom</label>
+                                <label for="contact_form_lastName">Nom</label>
                                 <div class="text-danger">{{ form_errors(form.lastName) }}</div>
                                 {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
                             </div>
@@ -46,14 +46,14 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label>Email</label>
+                                <label for="contact_form_email">Email</label>
                                 <div class="text-danger">{{ form_errors(form.email) }}</div>
                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label>Numéro de téléphone</label>
+                                <label for="contact_form_telephone">Numéro de téléphone</label>
                                 <div class="text-danger">{{ form_errors(form.telephone) }}</div>
                                 {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
                             </div>
@@ -62,14 +62,14 @@
                     <div class="row mb-3">
                         <div class="col-12">
                             <div>
-                                <label>Message</label>
+                                <label for="contact_form_message">Message</label>
                                 <div class="text-danger">{{ form_errors(form.message) }}</div>
                                 {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': 6}}) }}
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <input type="submit" class="btn btn-primary" formnovalidate />
+                        <input type="submit" class="btn btn-primary" value="Envoyer" formnovalidate />
                     </div>
                 {{ form_end(form) }}
             </div>
