@@ -31,7 +31,7 @@ class ContactController extends AbstractController
             $sendEmailService->send([
                 "sender_email"          => $contact->getEmail(),
                 "sender_name"           => $contact->getFirstName() . " " . $contact->getLastName(),
-                "recipient_email"       => "monsaintjo@gmail.com",
+                "recipient_email"       => "info@monsaintjo.re",
                 "subject"               => "Demande d'informations.",
                 "html_template"         => "email/contact.html.twig",
                 "context"               => [
