@@ -61,8 +61,8 @@ class RegistrationController extends AbstractController
 
             // send an email to user
             $sendEmailService->send([
-                "sender_email"        => "testmonsaintjo@gmail.com",
-                "sender_name"         => "Zakaryya PM",
+                "sender_email"        => "info@monsaintjo.re",
+                "sender_name"         => "MonSaint-Jo",
                 "recipient_email"     => $user->getEmail(),
                 "subject"             => "Vérification de votre compte sur le site MonSaintJo",
                 "html_template"       => "email/email_verification.html.twig",

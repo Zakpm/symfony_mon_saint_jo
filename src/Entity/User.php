@@ -132,7 +132,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Post::class)]
     private Collection $posts;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Comment::class, orphanRemoval: true)]
     private Collection $comments;
 
 
@@ -143,7 +143,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = false;
         $this->roles[] = "ROLE_USER";
         $this->posts = new ArrayCollection();
-        $this->comments = new ArrayCollection();
+        $this->comments = new ArrayCollection(); 
     }
 
     public function getId(): ?int

@@ -61,7 +61,10 @@ class UserController extends AbstractController
                 $post->setUser(null);
             }
 
-            $this->container->get('security.token_storage')->setToken(null);
+            if($user == $this->getUser())
+            {
+                $this->container->get('security.token_storage')->setToken(null);
+            }
 
             $userRepository->remove($user, true);
 
