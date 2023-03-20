@@ -34,12 +34,12 @@
   <div class="container mt-5 pb-3">
     {{ form_start(form) }}
         <div class="mb-3">
-            <label for="">Titre</label>
+            <label for="post_form_title">Titre</label>
             <div class="text-danger">{{ form_errors(form.title) }}</div>
             {{ form_widget(form.title, {'attr': {'class': "form-control", "autofocus": true}}) }}
         </div>
         <div class="mb-3">
-            <label for="">Catégorie</label>
+            <label for="post_form_category">Catégorie</label>
             <div class="text-danger">{{ form_errors(form.category) }}</div>
             {{ form_widget(form.category, {'attr': {'class': "form-control"}}) }}
         </div>
@@ -72,14 +72,14 @@
                     {% endif %}
                 </div>
                 <div class="col-md-6">
-                    <label for="">Image</label>
+                    <label for="post_form_imageFile_file">Image</label>
                     <div class="text-danger">{{ form_errors(form.imageFile) }}</div>
                     {{ form_widget(form.imageFile, {'attr': {'class': "form-control"}}) }}
                 </div>
             </div>
         </div>
         <div class="mb-3">
-            <label for="">Contenu</label>
+            <label for="post_form_content">Contenu</label>
             <div class="text-danger">{{ form_errors(form.content) }}</div>
             {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 15}}) }}
         </div>
