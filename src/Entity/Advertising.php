@@ -36,7 +36,10 @@ class Advertising
     private ?string $slug = null;
 
 
-
+    #[Assert\Url(
+        message: "L'URL {{ value }} n'est pas valide.",
+    )]
+    protected $bioUrl;
     #[ORM\Column(Types::TEXT, nullable: true)]
     private ?string $content = null;
 

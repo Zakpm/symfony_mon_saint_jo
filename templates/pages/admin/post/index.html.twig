@@ -112,7 +112,7 @@
                         </td>
                         <td>
                             <a class="text-secondary m-2" href="{{ path('admin.post.edit', {'id' : post.id}) }}" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_post_{{ post.id }}').submit()"  class="text-danger m-2" href="" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
+                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_post_{{ post.id }}').submit()"  class="text-danger m-2" href="#" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
                             
                             <form class="delete_post_{{ post.id }}" action="{{ path('admin.post.delete', {'id': post.id})}}" method="POST" class="d-none">
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('post_' ~ post.id ) }}" />

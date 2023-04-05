@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block main %}
-    <h1 class="text-center my-3 display-5">Modifier l'article</h1>
+    <h1 class="text-center my-3 display-5">Modifier la publicité</h1>
 
     <div class="container mt-5 pb-3">
         {{ form_start(form) }}
@@ -28,18 +28,18 @@
                 {{ form_widget(form.title, {'attr': {'class': "form-control", "autofocus": true}}) }}
             </div>            
             <div class="mb-3">
-                <label for="advertising_form_imageFile_file">Image (Pour une meilleures qualité d'image, le format conseillé est : 1800x300)</label>
+                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
                 <div class="text-danger">{{ form_errors(form.imageFile) }}</div>
                 {{ form_widget(form.imageFile, {'attr': {'class': "form-control"}}) }}
                 {{ form_widget(form.image, {'attr': {'class': "d-none"}}) }}
             </div>
             <div class="mb-3">
-                <label for="advertising_form_content">Contenu</label>
+                <label for="advertising_form_content">Contenu (Uniquement s'il y a un lien de redirection vers le site du client)</label>
                 <div class="text-danger">{{ form_errors(form.content) }}</div>
                 {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 15}}) }}
             </div>
             <div class="mb-3">
-                <input type="submit" class="btn btn-primary" value="Sauvegarder" formnovalidate />
+                <input type="submit" class="btn btn-primary" value="Modifier" formnovalidate />
             </div>
         {{ form_end(form) }}
       </div>

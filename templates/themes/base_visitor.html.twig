@@ -13,7 +13,7 @@
     {# Chargement des balises meta pour le SEO #}
     <meta name="robots" content="index, follow" />
     <meta name="description" content= "Mon Saint-Jo information {% block description %}{% endblock %}" />
-    <meta name="keywords" content="Saint-Joseph, informations Réunion, actualité Réunion, backend, php, php8, framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+    <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualité Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
 
     {# Le titre affiché dans l'onglet de la page #}
     <title>Mon Saint-Jo  {% block title %}{% endblock %}</title>
@@ -54,6 +54,17 @@
 
     
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QLM0GPV13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9QLM0GPV13');
+</script>
+
 <body class="bg-light body-visitor">
     
     {# Barre de navigation #}

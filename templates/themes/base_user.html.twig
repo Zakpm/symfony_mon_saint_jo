@@ -10,10 +10,11 @@
     {# Minim de responsive design #}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {# Chargement des balises meta pour le SEO #}
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content= "Mon Saint-Jo information {% block description %}{% endblock %}" />
-
+   {# Chargement des balises meta pour le SEO #}
+   <meta name="robots" content="index, follow" />
+   <meta name="description" content= "Mon Saint-Jo user {% block description %}{% endblock %}" />
+   <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualité Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+   
     {# Le titre affiché dans l'onglet de la page #}
     <title>Mon Saint Jo  {% block title %}{% endblock %}</title>
 
@@ -46,9 +47,19 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
      {% endblock %}
  
-
     
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QLM0GPV13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9QLM0GPV13');
+</script>
+
 <body class="bg-light body-visitor">
     
     {# Barre de navigation #}

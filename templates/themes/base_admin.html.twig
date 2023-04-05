@@ -2,8 +2,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Chargement des balises meta pour le SEO #}
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content= "Mon Saint-Jo admin {% block description %}{% endblock %}" />
+    <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualité Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+    
+
     <title>Mon Saint Jo - Admin - {% block title %}{% endblock %}</title>
 
     {# Favicon #}
@@ -67,6 +76,17 @@
     <link rel="stylesheet" href="{{ asset('admin_css/admin.css') }}">
     
 </head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9QLM0GPV13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9QLM0GPV13');
+</script>
+
 <body>
     <div class="d-flex" id="wrapper">
 
