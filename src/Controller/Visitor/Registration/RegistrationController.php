@@ -64,7 +64,7 @@ class RegistrationController extends AbstractController
                 "sender_email"        => "info@monsaintjo.re",
                 "sender_name"         => "MonSaint-Jo",
                 "recipient_email"     => $user->getEmail(),
-                "subject"             => "Vérification de votre compte sur le site MonSaintJo",
+                "subject"             => "Vérification de votre compte sur le site Mon Saint-Jo",
                 "html_template"       => "email/email_verification.html.twig",
                 "context"             => [
                     "user_id"    => $user->getId(),
