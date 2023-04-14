@@ -29,7 +29,7 @@ class ContactController extends AbstractController
             $contactRepository->save($contact, true);
 
             $sendEmailService->send([
-                "sender_email"          => $contact->getEmail(),
+                "sender_email"          => 'info@monsaintjo.re',
                 "sender_name"           => $contact->getFirstName() . " " . $contact->getLastName(),
                 "recipient_email"       => "info@monsaintjo.re",
                 "subject"               => "Demande d'informations.",

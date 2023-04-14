@@ -1,13 +1,15 @@
-<h2>Hello Mon Saint-Jo</h2>
+<h1>Hello Mon Saint-Jo</h1>
 
-<h2>{{ first_name }} {{ last_name }} vous a envoyé un message via votre site.</h2>
+<h2>{{ first_name }} {{ last_name }} vous a envoyé un message via votre site.</h2> <br/>
 
 {% if telephone %}
-    <h3>Voici son numéro de téléphone : {{ telephone }}</h3>
+    <h3>Voici son numéro de téléphone : {{ telephone }}</h3> <br/>
 {% endif %}
+
+<h3>Voici son email : {{ contact_email }}</h3> <br/>
 
 <h3>Voici le message : </h3>
 
-<p>{{ message }}</p>
+<p>" {{ message }} "</p> <br/>
 
 <p>Ciao ! 😜</p>
