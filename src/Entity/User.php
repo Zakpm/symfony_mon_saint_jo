@@ -89,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\Regex(
         pattern: '#^(?=.*[a-zà-ÿ])(?=.*[A-ZÀ-Ỳ])(?=.*[0-9])(?=.*[^a-zà-ÿA-ZÀ-Ỳ0-9]).{12,4000}$#',
         match: true,
-        message: 'Le mot de passe doit contenir au moins une lette minuscule, une lettre majuscule, un chiffre et caractère spécial.',
+        message: 'Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule, un chiffre et caractère spécial.',
     )]
     #[Assert\NotCompromisedPassword(
         message:"Ce mot de passe est facilement piratable ! Veuillez en choisir un autre."
