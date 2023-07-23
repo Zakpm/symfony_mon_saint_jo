@@ -20,7 +20,7 @@
     {# Chargement des balises meta pour le SEO #}
     <meta name="robots" content="index, follow" />
     <meta name="description" content= "Mon Saint-Jo admin {% block description %}{% endblock %}" />
-    <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualité Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+    <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualités Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
     
 
     <title>Mon Saint Jo - Admin - {% block title %}{% endblock %}</title>
@@ -82,9 +82,14 @@
     {# Tiny #}
     {% block tiny %}{% endblock %}
 
-
+    {# le css de la sidebar admin #}
     <link rel="stylesheet" href="{{ asset('admin_css/admin.css') }}">
-    
+
+    {# url canonique #}
+    {% block url_canonique %}
+    <link rel="canonical" href="https://monsaintjo.re">
+    {% endblock %}
+        
 </head>
 
 <!-- Google tag (gtag.js) -->

@@ -22,7 +22,7 @@
    {# Chargement des balises meta pour le SEO #}
    <meta name="robots" content="index, follow" />
    <meta name="description" content= "Mon Saint-Jo user {% block description %}{% endblock %}" />
-   <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualité Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
+   <meta name="keywords" content="monsaintjo, Mon Saint-Jo, Saint-Joseph, Informations Réunion, actualités Réunion, Backend, php, php8, Framework, Symfony, Saint-Philippe, Petite-île, Sud Sauvage">
    
     {# Le titre affiché dans l'onglet de la page #}
     <title>Mon Saint Jo  {% block title %}{% endblock %}</title>
@@ -54,6 +54,11 @@
      {# Font awesome #}
      {% block font_awsome %}
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     {% endblock %}
+
+     {# URL canonique #}
+     {% block url_canonique %}
+     <link rel="canonical" href="https://monsaintjo.re">
      {% endblock %}
  
     
