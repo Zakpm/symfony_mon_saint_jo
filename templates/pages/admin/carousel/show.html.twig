@@ -1,0 +1,33 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Image numéro : {{ carousel.id }}{% endblock %}
+
+{% block description %}Image numéro : {{ carousel.id }}{% endblock %}
+
+
+{% block main %}
+<div class="container mt-3">
+    <div class="container my-4 text-center">
+        <h1>{{ carousel.titre }}</h1>
+    </div>
+
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(carousel, 'imageFile') }}" class="img-fluid">
+    </div>
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(carousel, 'imageFile1') }}" class="img-fluid">
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(carousel, 'imageFile2') }}" class="img-fluid">
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(carousel, 'imageFile3') }}" class="img-fluid">
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(carousel, 'imageFile4') }}" class="img-fluid">
+    </div>
+    
+
+</div>
+{% endblock %}

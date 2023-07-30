@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class PostFormType extends AbstractType
 {
@@ -60,6 +61,7 @@ class PostFormType extends AbstractType
                 'imagine_pattern' => false,
                 'asset_helper'    => false,
             ])
+            
             ->add('content', TextareaType::class)
         ;
     }

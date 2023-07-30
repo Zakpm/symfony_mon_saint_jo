@@ -1,0 +1,16 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Annonce numéro : {{ annoncement.id }}{% endblock %}
+
+{% block description %}Annonce numéro : {{ annoncement.id }}{% endblock %}
+
+{% block main %}
+<div class="container mt-3">
+    <div class="container my-2 text-center">
+        <h1>{{ annoncement.titre }}</h1>
+    </div>
+
+    <div class="container my-2">
+        {{ annoncement.content | raw }}
+    </div>
+{% endblock %}

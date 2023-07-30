@@ -43,8 +43,18 @@
                     <td>
                         {% if advertising.image %}
                             <img src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
-                        {% else %}
-                            <img height="80" width="100" src="{{ asset('images/static/admin/post/default-post-image.jpg') }}" />
+                        {% endif %}
+                        {% if advertising.image1 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                        {% if advertising.image2 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                        {% if advertising.image3 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                        {% if advertising.image4 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
                         {% endif %}
                     </td>
                     <td><a href="{{ path('admin.advertising.show', {'id' : advertising.id}) }}" title="Voir la pub"><i class="fa-solid fa-eye"></i></a></td>

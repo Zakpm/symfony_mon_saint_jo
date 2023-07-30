@@ -40,6 +40,38 @@
                 <div class="text-danger">{{ form_errors(form.content) }}</div>
                 {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 15}}) }}
             </div>
+
+            <div class="mb-3">
+                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                {{ form_widget(form.imageFile1, {'attr': {'class': "form-control"}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="advertising_form_content">Contenu (Uniquement s'il y a un lien de redirection vers le site du client)</label>
+                <div class="text-danger">{{ form_errors(form.content1) }}</div>
+                {{ form_widget(form.content1, {'attr': {'class': "form-control", "rows": 15}}) }}
+            </div>
+
+            <div class="mb-3">
+                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                {{ form_widget(form.imageFile2, {'attr': {'class': "form-control"}}) }}
+            </div>
+            <div class="mb-3">
+                <label for="advertising_form_content">Contenu (Uniquement s'il y a un lien de redirection vers le site du client)</label>
+                <div class="text-danger">{{ form_errors(form.content2) }}</div>
+                {{ form_widget(form.content2, {'attr': {'class': "form-control", "rows": 15}}) }}
+            </div>
+
+            <div class="mb-3">
+                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                {{ form_widget(form.imageFile3, {'attr': {'class': "form-control"}}) }}
+            </div>
+
+            <div class="mb-3">
+                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                {{ form_widget(form.imageFile4, {'attr': {'class': "form-control"}}) }}
+            </div>
+           
+            
             <div class="mb-3">
                 <input type="submit" class="btn btn-primary" value="Sauvegarder" formnovalidate />
             </div>

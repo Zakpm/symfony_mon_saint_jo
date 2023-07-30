@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin\Home;
 
+use App\Entity\Carousel;
 use App\Entity\Category;
+use App\Repository\CarouselRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\CityRepository;
 use App\Repository\CommentRepository;

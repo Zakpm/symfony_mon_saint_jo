@@ -2,23 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\AdvertisingRepository;
-use Doctrine\DBAL\Types\Types;
+use App\Repository\CarouselRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
-use Gedmo\Mapping\Annotation as Gedmo;
 
-#[ORM\Entity(repositoryClass: AdvertisingRepository::class)]
+#[ORM\Entity(repositoryClass: CarouselRepository::class)]
 #[Vich\Uploadable]
-class Advertising
+class Carousel
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
 
     #[Assert\NotBlank(
         message: "Le titre est obligatoire."
@@ -28,157 +26,132 @@ class Advertising
         maxMessage: 'Le titre doit contenir au maximu {{ limit }} caractères.',
     )]
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $titre = null;
 
-        
-    #[Gedmo\Slug(fields: ['title'])]
+
+    #[Gedmo\Slug(fields: ['titre'])]    
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
 
-    #[Assert\Url(
-        message: "L'URL {{ value }} n'est pas valide.",
-    )]
-    protected $bioUrl;
-    #[ORM\Column(Types::TEXT, nullable: true)]
-    private ?string $content = null;
-
-    #[Assert\Url(
-        message: "L'URL {{ value }} n'est pas valide.",
-    )]
-    protected $bioUrl1;
-    #[ORM\Column(length:255, nullable: true)]
-    private ?string $content1 = null;
-
-    #[Assert\Url(
-        message: "L'URL {{ value }} n'est pas valide.",
-    )]
-    protected $bioUrl2;
-    #[ORM\Column(length:255, nullable: true)]
-    private ?string $content2 = null;
-
-    // #[Assert\Url(
-    //     message: "L'URL {{ value }} n'est pas valide.",
-    // )]
-    // protected $bioUrl5;
-    // #[ORM\Column(length:255, nullable: true)]
-    // private ?string $content3 = null;
-
-    // #[Assert\Url(
-    //     message: "L'URL {{ value }} n'est pas valide.",
-    // )]
-    // protected $bioUrl4;
-    // #[ORM\Column(length:255, nullable: true)]
-    // private ?string $content4 = null;
-
-
-
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image')]
+    #[Vich\UploadableField(mapping: 'image_carousel', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image1')]
+    #[Vich\UploadableField(mapping: 'image_carousel', fileNameProperty: 'image1')]
     private ?File $imageFile1 = null;
-
-
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image2')]
+    #[Vich\UploadableField(mapping: 'image_carousel', fileNameProperty: 'image2')]
     private ?File $imageFile2 = null;
-
-
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image3')]
+    #[Vich\UploadableField(mapping: 'image_carousel', fileNameProperty: 'image3')]
     private ?File $imageFile3 = null;
-
-
     #[Assert\File(
         maxSize: '2048k',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/bmp'],
         maxSizeMessage: "La taille de l'image doit être inférieur à 2 Mo.",
         mimeTypesMessage: 'Seuls les formats : jpeg, jpg, png, webp, bmp sont acceptés.',
     )]
-    #[Vich\UploadableField(mapping: 'image_advertising', fileNameProperty: 'image4')]
+    #[Vich\UploadableField(mapping: 'image_carousel', fileNameProperty: 'image4')]
     private ?File $imageFile4 = null;
+
 
 
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image = null;
 
-
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image1 = null;
-
 
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image2 = null;
 
-
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image3 = null;
-
 
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $image4 = null;
 
-    
+
 
     #[ORM\Column(options: array("default" => false))]
     private ?bool $isPublished = null;
-    
 
 
-    #[Gedmo\Timestampable(on: 'create')]
+    #[Gedmo\Timestampable(on: 'create')]  
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
 
-    
-    #[Gedmo\Timestampable(on: 'update')]
+    #[Gedmo\Timestampable(on: 'update')]    
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
-    
+
+
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $publishedAt = null;
 
-   
-
+        
 
     public function __construct()
     {
         $this->isPublished = false;
     }
 
-    
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-     /**
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
@@ -202,14 +175,16 @@ class Advertising
     {
         return $this->imageFile;
     }
-     /**
+
+
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile1
      */
     public function setImageFile1(?File $imageFile1 = null): void
     {
@@ -226,14 +201,16 @@ class Advertising
     {
         return $this->imageFile1;
     }
-     /**
+
+
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile1
      */
     public function setImageFile2(?File $imageFile2 = null): void
     {
@@ -251,14 +228,15 @@ class Advertising
         return $this->imageFile2;
     }
 
-     /**
+
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile1
      */
     public function setImageFile3(?File $imageFile3 = null): void
     {
@@ -275,14 +253,16 @@ class Advertising
     {
         return $this->imageFile3;
     }
-     /**
+
+
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
      * must be able to accept an instance of 'File' as the bundle will inject one here
      * during Doctrine hydration.
      *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile1
      */
     public function setImageFile4(?File $imageFile4 = null): void
     {
@@ -302,7 +282,17 @@ class Advertising
 
 
 
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
 
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
 
     public function getImage1(): ?string
     {
@@ -348,93 +338,6 @@ class Advertising
 
         return $this;
     }
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
-
-    public function setTitle(string $title): self
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(?string $content): self
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-    public function getContent1(): ?string
-    {
-        return $this->content1;
-    }
-
-    public function setContent1(?string $content1): self
-    {
-        $this->content1 = $content1;
-
-        return $this;
-    }
-
-    public function getContent2(): ?string
-    {
-        return $this->content2;
-    }
-
-    public function setContent2(?string $content2): self
-    {
-        $this->content2 = $content2;
-
-        return $this;
-    }
-
-    // public function getConten3t(): ?string
-    // {
-    //     return $this->content3;
-    // }
-
-    // public function setContent3(?string $content3): self
-    // {
-    //     $this->content3 = $content3;
-
-    //     return $this;
-    // }
-    // public function getConten4(): ?string
-    // {
-    //     return $this->content4;
-    // }
-
-    // public function setContent4(?string $content4): self
-    // {
-    //     $this->content4 = $content4;
-
-    //     return $this;
-    // }
-
-
-
-
 
     public function isIsPublished(): ?bool
     {
@@ -468,18 +371,6 @@ class Advertising
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

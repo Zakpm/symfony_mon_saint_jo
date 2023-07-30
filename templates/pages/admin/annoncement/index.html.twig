@@ -1,0 +1,72 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Liste des annonces{% endblock %}
+
+{% block description %}Liste des annonces{% endblock %}
+
+{% block main %}
+<h1 class="text-center my-3 display-5">Liste des annonces</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class=" text-center alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+
+    <div class="d-flex justify-content-end align-content-center my-3">
+        <a href="{{ path('admin.annoncement.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Nouvelle annonce</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class=" table table-hover table-striped text-center">
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th colspan="7">Annonces</th>
+                </tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Publié ?</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for annoncement in annoncements %}
+                    <tr>
+                        <td>{{ annoncement.id }}</td>
+                        <td>{{ annoncement.titre }}</td>
+                        <td><a href="{{ path('admin.annoncement.show', {'id' : annoncement.id}) }}" title="Voir l'annonce"><i class="fa-solid fa-eye"></i></a></td>
+                        <td>
+                            <div class="d-flex flex-column justify-content-center align-content-center">
+                                {% if annoncement.isPublished %}
+                                    <span> 🥳 Publié le {{ annoncement.publishedAt | date('d/m/Y') }}</span>
+                                {% else %}
+                                    <span>Pas encore 😴</span>    
+                                {% endif %}
+                                <form action="{{ path('admin.annoncement.publish', {'id': annoncement.id}) }}" method="POST">
+                                    <div class="form-check-inline form-switch">
+                                        <input onclick=" return confirm('Confimer cette action ?')" onchange="this.form.submit()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" {{ annoncement.ispublished ? 'checked' : ''}}>
+                                        {# <label class="form-check-label" for="flexSwitchCheckChecked"></label> #}
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                        <td>
+                            <a class="text-secondary m-2" href="{{ path('admin.annoncement.edit', {'id' : annoncement.id}) }}" title="Modifier"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a onclick="event.preventDefault(); confirm('Confirmer la suppression ?') && document.querySelector('.delete_annoncement_{{ annoncement.id }}').submit()"  class="text-danger m-2" href="#" title="Supprimer"><i class="fa-solid fa-trash-can"></i></a>
+                            
+                            <form class="delete_annoncement_{{ annoncement.id }}" action="{{ path('admin.annoncement.delete', {'id' : annoncement.id}) }}" method="POST" class="d-none">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('annoncement_' ~ annoncement.id ) }}" />
+                            </form>
+                        </td>
+
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

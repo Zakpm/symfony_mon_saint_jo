@@ -26,18 +26,88 @@
                 <label for="advertising_form_title">Titre</label>
                 <div class="text-danger">{{ form_errors(form.title) }}</div>
                 {{ form_widget(form.title, {'attr': {'class': "form-control", "autofocus": true}}) }}
-            </div>            
+            </div> 
+
             <div class="mb-3">
-                <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
-                <div class="text-danger">{{ form_errors(form.imageFile) }}</div>
-                {{ form_widget(form.imageFile, {'attr': {'class': "form-control"}}) }}
-                {{ form_widget(form.image, {'attr': {'class': "d-none"}}) }}
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        {% if advertising.image %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                        <div class="text-danger">{{ form_errors(form.imageFile) }}</div>
+                        {{ form_widget(form.imageFile, {'attr': {'class': "form-control"}}) }}
+                        {{ form_widget(form.image, {'attr': {'class': "d-none"}}) }}
+                        {{ form_widget(form.content, {'attr': {'class': "d-none"}}) }}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        {% if advertising.image1 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                        <div class="text-danger">{{ form_errors(form.imageFile1) }}</div>
+                        {{ form_widget(form.imageFile1, {'attr': {'class': "form-control"}}) }}
+                        {{ form_widget(form.content1, {'attr': {'class': "d-none"}}) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        {% if advertising.image2 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                        <div class="text-danger">{{ form_errors(form.imageFile2) }}</div>
+                        {{ form_widget(form.imageFile2, {'attr': {'class': "form-control"}}) }}
+                        {{ form_widget(form.content2, {'attr': {'class': "d-none"}}) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        {% if advertising.image3 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                        <div class="text-danger">{{ form_errors(form.imageFile3) }}</div>
+                        {{ form_widget(form.imageFile3, {'attr': {'class': "form-control"}}) }}
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
-                <label for="advertising_form_content">Contenu (Uniquement s'il y a un lien de redirection vers le site du client)</label>
-                <div class="text-danger">{{ form_errors(form.content) }}</div>
-                {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 15}}) }}
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        {% if advertising.image4 %}
+                            <img src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('admin_post_image_thumbnail')  }}" alt="{{ advertising.title }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <label for="advertising_form_imageFile_file">Image (Pour une meilleure qualité d'image, le format conseillé est : 1800x300)</label>
+                        <div class="text-danger">{{ form_errors(form.imageFile4) }}</div>
+                        {{ form_widget(form.imageFile4, {'attr': {'class': "form-control"}}) }}
+                    </div>
+                </div>
             </div>
+
+            
             <div class="mb-3">
                 <input type="submit" class="btn btn-primary" value="Modifier" formnovalidate />
             </div>

@@ -6,18 +6,65 @@
 
 {% block main %}
 <div class="container mt-3">
+    <div class="container my-2 text-center">
+        <h1>{{ advertising.title }}</h1>
+    </div>
 
+    <div class="container my-2">
+        {{ advertising.content | raw }}
+    </div>
     <div class="container my-2 text-center">
         <img src="{{vich_uploader_asset(advertising, 'imageFile') }}" class="img-fluid">
     </div>
 
-    <div class="container my-4 text-center">
+   
+    <div class="container my-3">
+        {{ advertising.content1 | raw }}
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(advertising, 'imageFile1') }}" class="img-fluid">
+    </div>
+
+    {# <div class="container my-4 text-center">
+        <h1>{{ advertising.title }}</h1>
+    </div> #}
+
+    <div class="container my-3">
+        {{ advertising.content2 | raw }}
+    </div>
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(advertising, 'imageFile2') }}" class="img-fluid">
+    </div>
+
+    {# <div class="container my-4 text-center">
         <h1>{{ advertising.title }}</h1>
     </div>
 
     <div class="container my-3">
         {{ advertising.content | raw }}
+    </div> #}
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(advertising, 'imageFile3') }}" class="img-fluid">
     </div>
+
+    {# <div class="container my-4 text-center">
+        <h1>{{ advertising.title }}</h1>
+    </div>
+
+    <div class="container my-3">
+        {{ advertising.content | raw }}
+    </div> #}
+    <div class="container my-2 text-center">
+        <img src="{{vich_uploader_asset(advertising, 'imageFile4') }}" class="img-fluid">
+    </div>
+
+    {# <div class="container my-4 text-center">
+        <h1>{{ advertising.title }}</h1>
+    </div>
+
+    <div class="container my-3">
+        {{ advertising.content | raw }}
+    </div> #}
 
 </div>
 {% endblock %}

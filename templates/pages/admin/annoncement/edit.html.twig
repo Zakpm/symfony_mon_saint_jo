@@ -1,0 +1,27 @@
+{% extends "themes/base_admin.html.twig" %}
+
+{% block title %}- Modifier l'annonce{% endblock %}
+
+{% block description %}Modifier l'annonce{% endblock %}
+
+{% block main %}
+<h1 class="text-center my-3 display-5">Modifier l'annonce</h1>
+
+<div class="container mt-5 pb-3">
+    {{ form_start(form) }}
+    <div class="mb-3">
+        <label for="advertising_form_title">Titre</label>
+        <div class="text-danger">{{ form_errors(form.titre) }}</div>
+        {{ form_widget(form.titre, {'attr': {'class': "form-control", "autofocus": true}}) }}
+    </div>
+    <div class="mb-3">
+        <label for="advertising_form_content">Contenu</label>
+        <div class="text-danger">{{ form_errors(form.content) }}</div>
+        {{ form_widget(form.content, {'attr': {'class': "form-control", "rows": 10}}) }}
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-primary" value="Sauvegarder" formnovalidate />
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
