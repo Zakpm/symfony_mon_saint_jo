@@ -19,142 +19,145 @@
     {# div pub #}
     {% for advertising in ads %}
     {% if advertising.content %}
-    <a href="{{ advertising.content }}">
-        <div id="carouselAdvertising" class="carousel slide mt-4" data-bs-ride="carousel">
-            <div class="carousel-inner text-bg-dark mt-3">
-                {% if advertising.image %}
-                <div class="carousel-item active">
+    <div id="carouselAdvertising" class="carousel slide mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner text-bg-dark mt-3">
+            {% if advertising.image %}
+            <div class="carousel-item active" data-bs-interval="3000">
+                <a href="{{ advertising.content }}">
                     <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
-                </div>
-                {% endif %}
-                {% if advertising.image1 %}
-                <a href="{{ advertising.content1 }}">
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
-                </div>
-                {% endif %}
-                {% if advertising.image2 %}
-                <a href="{{ advertising.content2 }}">
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
-                </div>
-                {% endif %}
-                {% if advertising.image3 %}
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
-                </div>
-                {% endif %}
-                {% if advertising.image4 %}
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
-                </div>
-                {% endif %}
-                
+                        src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </a>
             </div>
+            {% endif %}
+            {% if advertising.image1 %}
+            <div class="carousel-item" data-bs-interval="3000">
+                <a href="{{ advertising.content1 }}">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </a>
+            </div>
+            {% endif %}
+            {% if advertising.image2 %}
+            <div class="carousel-item" data-bs-interval="3000">
+                <a href="{{ advertising.content2 }}">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </a>
+            </div>
+            {% endif %}
+            {% if advertising.image3 %}
+            <div class="carousel-item" data-bs-interval="3000">
+                <img style="width: 100%;"
+                    src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
+            </div>
+            {% endif %}
+            {% if advertising.image4 %}
+            <div class="carousel-item" data-bs-interval="3000">
+                <img style="width: 100%;"
+                    src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
+            </div>
+            {% endif %}
+
         </div>
-    </a>
+    </div>
     {% else %}
     <div id="carouselAdvertising" class="carousel slide mt-4" data-bs-ride="carousel">
         <div class="carousel-inner text-bg-dark mt-3">
             {% if advertising.image %}
-            <div class="carousel-item active">
+            <div class="carousel-item active" data-bs-interval="3000">
                 <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+                    src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
             </div>
             {% endif %}
             {% if advertising.image1 %}
-            <div class="carousel-item active">
+            <div class="carousel-item" data-bs-interval="3000">
                 <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+                    src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
             </div>
             {% endif %}
             {% if advertising.image2 %}
-            <div class="carousel-item active">
+            <div class="carousel-item" data-bs-interval="3000">
                 <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+                    src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
             </div>
             {% endif %}
             {% if advertising.image3 %}
-            <div class="carousel-item active">
+            <div class="carousel-item" data-bs-interval="3000">
                 <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+                    src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
             </div>
             {% endif %}
             {% if advertising.image4 %}
-            <div class="carousel-item active">
+            <div class="carousel-item" data-bs-interval="3000">
                 <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+                    src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}"
+                    class="d-block w-100" alt="Image de publicité">
             </div>
             {% endif %}
-            
+
         </div>
     </div>
     {% endif %}
     {% endfor %}
 
     {# caroussel #}
-    
+
     {% for carousel in carousels %}
-        <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel" style="max-height: 700px; overflow: hidden;">
-            
-            <div class="carousel-inner">
-                {% if carousel.image %}
-                <div class="carousel-item active">
-                    <img src="{{ vich_uploader_asset(carousel, 'imageFile') | imagine_filter('visitor_carousel_thumbnail') }}" class="d-block w-100"
-                        alt="Image du bandeau">
-                </div>
-                {% endif %}
-                {% if carousel.image1 %}
-                <div class="carousel-item active">
-                    <img src="{{ vich_uploader_asset(carousel, 'imageFile1') | imagine_filter('visitor_carousel_thumbnail') }}" class="d-block w-100"
-                        alt="Image du bandeau">
-                </div>
-                {% endif %}
-                {% if carousel.image2 %}
-                <div class="carousel-item active">
-                    <img src="{{ vich_uploader_asset(carousel, 'imageFile2') | imagine_filter('visitor_carousel_thumbnail') }}" class="d-block w-100"
-                        alt="Image du bandeau">
-                </div>
-                {% endif %}
-                {% if carousel.image3 %}
-                <div class="carousel-item active">
-                    <img src="{{ vich_uploader_asset(carousel, 'imageFile3') | imagine_filter('visitor_carousel_thumbnail') }}" class="d-block w-100"
-                        alt="Image du bandeau">
-                </div>
-                {% endif %}
-                {% if carousel.image4 %}
-                <div class="carousel-item active">
-                    <img src="{{ vich_uploader_asset(carousel, 'imageFile4') | imagine_filter('visitor_carousel_thumbnail') }}" class="d-block w-100"
-                        alt="Image du bandeau">
-                </div>
-                {% endif %}
+    <div id="carouselExampleAutoplaying" class="carousel slide mt-4" data-bs-ride="carousel"
+        style="max-height: 700px; overflow: hidden;">
+
+        <div class="carousel-inner">
+            {% if carousel.image %}
+            <div class="carousel-item active" data-bs-interval="4000">
+                <img src="{{ vich_uploader_asset(carousel, 'imageFile') | imagine_filter('visitor_carousel_thumbnail') }}"
+                    class="d-block w-100" alt="Image du bandeau">
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            {% endif %}
+            {% if carousel.image1 %}
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ vich_uploader_asset(carousel, 'imageFile1') | imagine_filter('visitor_carousel_thumbnail') }}"
+                    class="d-block w-100" alt="Image du bandeau">
+            </div>
+            {% endif %}
+            {% if carousel.image2 %}
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ vich_uploader_asset(carousel, 'imageFile2') | imagine_filter('visitor_carousel_thumbnail') }}"
+                    class="d-block w-100" alt="Image du bandeau">
+            </div>
+            {% endif %}
+            {% if carousel.image3 %}
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ vich_uploader_asset(carousel, 'imageFile3') | imagine_filter('visitor_carousel_thumbnail') }}"
+                    class="d-block w-100" alt="Image du bandeau">
+            </div>
+            {% endif %}
+            {% if carousel.image4 %}
+            <div class="carousel-item" data-bs-interval="4000">
+                <img src="{{ vich_uploader_asset(carousel, 'imageFile4') | imagine_filter('visitor_carousel_thumbnail') }}"
+                    class="d-block w-100" alt="Image du bandeau">
+            </div>
+            {% endif %}
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
     {% endfor %}
 
 
@@ -186,8 +189,8 @@
                     <a class="text-decoration-none"
                         href="{{ path('visitor.blog.posts.filter_by_city', {'id': city.id, 'slug': city.slug}) }}">{{
                         city.name }}</a>
-                {% endfor %}
-                {% endif %}
+                    {% endfor %}
+                    {% endif %}
                 </li>
             </ul>
             <div class="row">
@@ -280,95 +283,138 @@
         </div>
 
         {# div pub #}
-    {% for advertising in ads %}
-    {% if advertising.content %}
-    <a href="{{ advertising.content }}">
-        <div id="carouselAdvertising" class="carousel slide mt-4" data-bs-ride="carousel">
+        {% for advertising in ads %}
+        {% if advertising.content %}
+        <div id="carouselAdvertising1" class="carousel slide mt-4" data-bs-ride="carousel">
             <div class="carousel-inner text-bg-dark mt-3">
                 {% if advertising.image %}
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <a href="{{ advertising.content }}">
+                        <img style="width: 100%;"
+                            src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"
+                            class="d-block w-100" alt="Image de publicité">
+                    </a>
                 </div>
                 {% endif %}
                 {% if advertising.image1 %}
-                <a href="{{ advertising.content1 }}">
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <a href="{{ advertising.content1 }}">
+                        <img style="width: 100%;"
+                            src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}"
+                            class="d-block w-100" alt="Image de publicité">
+                    </a>
                 </div>
                 {% endif %}
                 {% if advertising.image2 %}
-                <a href="{{ advertising.content2 }}">
-                <div class="carousel-item active">
-                    <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <a href="{{ advertising.content2 }}">
+                        <img style="width: 100%;"
+                            src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}"
+                            class="d-block w-100" alt="Image de publicité">
+                    </a>
                 </div>
                 {% endif %}
                 {% if advertising.image3 %}
-                <div class="carousel-item active">
+                <div class="carousel-item" data-bs-interval="3000">
                     <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
+                        src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
                 </div>
                 {% endif %}
                 {% if advertising.image4 %}
-                <div class="carousel-item active">
+                <div class="carousel-item" data-bs-interval="3000">
                     <img style="width: 100%;"
-                        src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                        alt="Image de publicité">
+                        src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
                 </div>
                 {% endif %}
-                
+
             </div>
         </div>
-    </a>
-    {% else %}
-    <div id="carouselAdvertising" class="carousel slide mt-4" data-bs-ride="carousel">
-        <div class="carousel-inner text-bg-dark mt-3">
-            {% if advertising.image %}
-            <div class="carousel-item active">
-                <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
+        {% else %}
+        <div id="carouselAdvertising1" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner text-bg-dark mt-3">
+                {% if advertising.image %}
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </div>
+                {% endif %}
+                {% if advertising.image1 %}
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </div>
+                {% endif %}
+                {% if advertising.image2 %}
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </div>
+                {% endif %}
+                {% if advertising.image3 %}
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </div>
+                {% endif %}
+                {% if advertising.image4 %}
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img style="width: 100%;"
+                        src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}"
+                        class="d-block w-100" alt="Image de publicité">
+                </div>
+                {% endif %}
+
             </div>
-            {% endif %}
-            {% if advertising.image1 %}
-            <div class="carousel-item active">
-                <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile1') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
-            </div>
-            {% endif %}
-            {% if advertising.image2 %}
-            <div class="carousel-item active">
-                <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile2') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
-            </div>
-            {% endif %}
-            {% if advertising.image3 %}
-            <div class="carousel-item active">
-                <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile3') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
-            </div>
-            {% endif %}
-            {% if advertising.image4 %}
-            <div class="carousel-item active">
-                <img style="width: 100%;"
-                    src="{{ vich_uploader_asset(advertising, 'imageFile4') | imagine_filter('visitor_advertising_thumbnail') }}" class="d-block w-100"
-                    alt="Image de publicité">
-            </div>
-            {% endif %}
-            
         </div>
-    </div>
-    {% endif %}
-    {% endfor %}
+
+        {# script pour image aléaatoire + reglage du bug sur le défilement #}
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Get the carousel item container
+                const carouselItems1 = document.querySelectorAll("#carouselAdvertising .carousel-item");
+                // Get the carousel item container
+                const carouselItems2 = document.querySelectorAll("#carouselAdvertising1 .carousel-item");
+
+                const carouselItems3 = document.querySelectorAll('#carouselExampleAutoplaying .carousel-item');
+
+
+                // Generate random indexes to select random items
+                const randomIndex1 = Math.floor(Math.random() * carouselItems1.length);
+                const randomIndex2 = Math.floor(Math.random() * carouselItems2.length);
+                const randomIndex3 = Math.floor(Math.random() * carouselItems3.length);
+
+                // Remove the "active" class from all items in both carousels
+                carouselItems1.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                carouselItems2.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                carouselItems3.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                // Add the "active" class to the randomly selected items in both carousels
+                const activeItem1 = carouselItems1[randomIndex1] || carouselItems1[0];
+                const activeItem2 = carouselItems2[randomIndex2] || carouselItems2[0];
+                const activeItem3 = carouselItems3[randomIndex3] || carouselItems3[0];
+
+
+                activeItem1.classList.add("active");
+                activeItem2.classList.add("active");
+                activeItem3.classList.add("active");
+            });
+        </script>
+        {% endif %}
+        {% endfor %}
 
     </div>
 </div>
