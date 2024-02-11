@@ -1,3 +1,4 @@
+
 # Définir l'image de base avec PHP 8 et les extensions requises
 FROM php:8.2-cli
 
